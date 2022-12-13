@@ -4,6 +4,7 @@ body{
 	line-height: 27px;
 	font-weight: 300;
 	color: #2C2B2B;
+	background-color: blueviolet;
 }
 
 .wrapper {
@@ -12,7 +13,6 @@ body{
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	background-color: darkgreen;
 }
 
 .container{
