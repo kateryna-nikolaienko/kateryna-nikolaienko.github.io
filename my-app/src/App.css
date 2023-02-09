@@ -187,7 +187,6 @@
 	padding: 30px;
 	text-align: center;
 	max-width: 362px;
-	margin-right: 30px;
 	margin: 0 auto;
 }
 
@@ -382,7 +381,7 @@
 }
 
 .footer__language::after {
-	content: url(../public/images/arrow-down.svg);
+	content: url(./assets/icons/arrow-down.svg);
 	position: absolute;
 	right: -10px;
 	top: 0;

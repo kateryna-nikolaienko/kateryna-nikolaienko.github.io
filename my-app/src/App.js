@@ -3,6 +3,28 @@ import './App.css';
 import './Slick.css';
 import './Reset.css';
 import logo from './logo.png';
+import playIcon from './assets/icons/play-button.svg';
+import headerPicture from './assets/images/header.png';
+import partnerPicture1 from './assets/images/partners/1.png';
+import partnerPicture2 from './assets/images/partners/2.png';
+import partnerPicture3 from './assets/images/partners/3.png';
+import partnerPicture4 from './assets/images/partners/4.png';
+import aboutCompany from './assets/images/about.png';
+import sliderPicture1 from './assets/images/slider/1.png';
+import sliderPicture2 from './assets/images/slider/2.png';
+import sliderPicture3 from './assets/images/slider/3.png';
+import sliderPicture4 from './assets/images/slider/4.png';
+import sliderPicture5 from './assets/images/slider/5.png';
+import solutionPicture from './assets/images/solutions.png';
+import footerLogo from './assets/images/logo2.png';
+import emailIcon from './assets/icons/contacts/email.svg';
+import phoneIcon from './assets/icons/contacts/phone.svg';
+import locationIcon from './assets/icons/contacts/location.svg';
+import facebookIcon from './assets/icons/socials/facebook.svg';
+import instagramIcon from './assets/icons/socials/instagram.svg';
+import linkedinIcon from './assets/icons/socials/linkedin.svg';
+import twitterIcon from './assets/icons/socials/twitter.svg';
+import youtubeIcon from './assets/icons/socials/youtube.svg';
 
 class App extends Component {
   render() {
@@ -74,7 +96,7 @@ class App extends Component {
                       <a className="header__btn header__btn-box" href="/">
                         <img
                           className="header__btn-img"
-                          src="images/play-button.svg"
+                          src={playIcon}
                           alt=""
                         />
                         Watch Video
@@ -82,22 +104,22 @@ class App extends Component {
                     </div>
                   </div>
                   <div className="header__content-right">
-                    <img src="/images/header.png" alt="Syber security" />
+                    <img src={headerPicture} alt="Cyber security" />
                   </div>
                 </div>
 
                 <ul className="header__bottom header__slider">
                   <li className="header__bottom-item">
-                    <img src="/images/partners/1.png" alt="partner" />
+                    <img src={partnerPicture1} alt="partner" />
                   </li>
                   <li className="header__bottom-item">
-                    <img src="/images/partners/2.png" alt="partner" />
+                    <img src={partnerPicture2} alt="partner" />
                   </li>
                   <li className="header__bottom-item">
-                    <img src="/images/partners/3.png" alt="partner" />
+                    <img src={partnerPicture3} alt="partner" />
                   </li>
                   <li className="header__bottom-item">
-                    <img src="/images/partners/4.png" alt="partner" />
+                    <img src={partnerPicture4} alt="partner" />
                   </li>
                 </ul>
               </div>
@@ -109,7 +131,7 @@ class App extends Component {
               <div className="about__container container">
                 <div className="about__inner">
                   <div className="about__inner-img">
-                    <img src="images/about.png" alt="About company" />
+                    <img src={aboutCompany} alt="About company" />
                   </div>
                   <div className="about__inner-content">
                     <h2 className="about__inner-title">
@@ -130,7 +152,7 @@ class App extends Component {
               <div className="slider__box slick-list">
                 <div className="slider__item">
                   <div className="slider__picture">
-                    <img src="images/slider/1.png" alt="" />
+                    <img src={sliderPicture1} alt="" />
                   </div>
                   <h4 className="slider__title">
                     Naxly as the Winners in Global Agency Awards
@@ -145,7 +167,7 @@ class App extends Component {
               <div className="slider__box">
                 <div className="slider__item">
                   <div className="slider__picture">
-                    <img src="images/slider/2.png" alt="" />
+                    <img src={sliderPicture2} alt="" />
                   </div>
                   <h4 className="slider__title">
                     Naxly as the Winners in Global Agency Awards
@@ -160,7 +182,7 @@ class App extends Component {
               <div className="slider__box">
                 <div className="slider__item">
                   <div className="slider__picture">
-                    <img src="images/slider/3.png" alt="" />
+                    <img src={sliderPicture3} alt="" />
                   </div>
                   <h4 className="slider__title">
                     Naxly as the Winners in Global Agency Awards
@@ -175,7 +197,7 @@ class App extends Component {
               <div className="slider__box">
                 <div className="slider__item">
                   <div className="slider__picture">
-                    <img src="images/slider/4.png" alt="" />
+                    <img src={sliderPicture4} alt="" />
                   </div>
                   <h4 className="slider__title">
                     Naxly as the Winners in Global Agency Awards
@@ -190,7 +212,7 @@ class App extends Component {
               <div className="slider__box">
                 <div className="slider__item">
                   <div className="slider__picture">
-                    <img src="images/slider/5.png" alt="" />
+                    <img src={sliderPicture5} alt="" />
                   </div>
                   <h4 className="slider__title">
                     Naxly as the Winners in Global Agency Awards
@@ -205,7 +227,7 @@ class App extends Component {
               <div className="slider__box">
                 <div className="slider__item">
                   <div className="slider__picture">
-                    <img src="images/slider/3.png" alt="" />
+                    <img src={sliderPicture3} alt="" />
                   </div>
                   <h4 className="slider__title">
                     Naxly as the Winners in Global Agency Awards
@@ -247,7 +269,7 @@ class App extends Component {
                     </p>
                   </div>
                   <div className="solutions__inner-img">
-                    <img src="images/solutions.png" alt="About solutions" />
+                    <img src={solutionPicture} alt="About solutions" />
                   </div>
                 </div>
               </div>
@@ -259,7 +281,7 @@ class App extends Component {
               <div className="footer__inner">
                 <div className="footer__inner-information">
                   <a className="footer__inner-logo" href="/">
-                    <img src="images/logo2.png" alt="Logotype" />
+                    <img src={footerLogo} alt="Logotype" />
                   </a>
                   <p className="footer__inner-text">
                     Lorem ipsum is placeholder text commonly used in the graphic,
@@ -270,7 +292,7 @@ class App extends Component {
                     <a className="footer__inner-email" href="mailto:Company@gmail.com">
                       <img
                         className="footer__inner-icon"
-                        src="images/contacts/email.svg"
+                        src={emailIcon}
                         alt="Email"
                       />
                       Company@gmail.com.com
@@ -278,7 +300,7 @@ class App extends Component {
                     <a className="footer__inner-phone" href="tel:064-332-1233">
                       <img
                         className="footer__inner-icon"
-                        src="images/contacts/phone.svg"
+                        src={phoneIcon}
                         alt="Phone"
                       />
                       Phone: (064) 332-1233
@@ -289,7 +311,7 @@ class App extends Component {
                     >
                       <img
                         className="footer__inner-icon"
-                        src="images/contacts/location.svg"
+                        src={locationIcon}
                         alt="location"
                       />
                       450 Wall Street, USA, New York
@@ -299,7 +321,7 @@ class App extends Component {
 
                 <div className="footer__inner-box">
                   <h4 className="footer__inner-title">INFORMATION</h4>
-                  <ul className="fotter__inner-list">
+                  <ul className="footer__inner-list">
                     <li className="footer__inner-item">
                       <a className="footer__inner-link" href="/"> New Collection </a>
                     </li>
@@ -323,7 +345,7 @@ class App extends Component {
 
                 <div className="footer__inner-box">
                   <h4 className="footer__inner-title">FOOTER MENU</h4>
-                  <ul className="fotter__inner-list">
+                  <ul className="footer__inner-list">
                     <li className="footer__inner-item">
                       <a className="footer__inner-link" href="/"> Instagram profile </a>
                     </li>
@@ -349,7 +371,7 @@ class App extends Component {
 
                 <div className="footer__inner-box">
                   <h4 className="footer__inner-title">USEFUL LINKS</h4>
-                  <ul className="fotter__inner-list">
+                  <ul className="footer__inner-list">
                     <li className="footer__inner-item">
                       <a className="footer__inner-link" href="/"> New Collection </a>
                     </li>
@@ -384,33 +406,32 @@ class App extends Component {
                   <ul className="footer__socials">
                     <li className="footer__social">
                       <a className="footer__social-link" href="/">
-                        <img src="images/socials/facebook.svg" alt="Facebook" />
+                        <img src={facebookIcon} alt="Facebook" />
                       </a>
                     </li>
                     <li className="footer__social">
                       <a className="footer__social-link" href="/">
-                        <img src="images/socials/instagram.svg" alt="Instagram" />
+                        <img src={instagramIcon} alt="Instagram" />
                       </a>
                     </li>
                     <li className="footer__social">
                       <a className="footer__social-link" href="/">
-                        <img src="images/socials/twitter.svg" alt="Twitter" />
+                        <img src={twitterIcon} alt="Twitter" />
                       </a>
                     </li>
                     <li className="footer__social">
                       <a className="footer__social-link" href="/">
-                        <img src="images/socials/linkedin.svg" alt="Linkedin" />
+                        <img src={linkedinIcon} alt="Linkedin" />
                       </a>
                     </li>
                     <li className="footer__social">
                       <a className="footer__social-link" href="/">
-                        <img src="images/socials/youtube.svg" alt="Youtube" />
+                        <img src={youtubeIcon} alt="Youtube" />
                       </a>
                     </li>
                   </ul>
 
                   <button className="footer__language">
-                    <img src="images/language.svg" alt="" />
                     English
                   </button>
                 </div>
