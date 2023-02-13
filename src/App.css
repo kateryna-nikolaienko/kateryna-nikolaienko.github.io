@@ -381,7 +381,7 @@
 }
 
 .footer__language::after {
-	content: url(./assets/icons/arrow-down.svg);
+	content: url(assets/icons/arrow-down.svg);
 	position: absolute;
 	right: -10px;
 	top: 0;
