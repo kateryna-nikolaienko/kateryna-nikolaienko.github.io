@@ -5,6 +5,7 @@ import './Reset.css';
 import logo from './logo.png';
 import playIcon from './assets/icons/play-button.svg';
 import headerPicture from './assets/images/header.png';
+import burgerIcon from './assets/icons/burger.svg';
 import partnerPicture1 from './assets/images/partners/1.png';
 import partnerPicture2 from './assets/images/partners/2.png';
 import partnerPicture3 from './assets/images/partners/3.png';
@@ -62,18 +63,7 @@ class App extends Component {
                   <div className="header__box">
                     <a className="menu__button" href="/"> Sign In </a>
                     <button className="menu__burger">
-                      <svg
-                        className="menu__burger-svg"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="18"
-                        viewBox="0 0 30 18"
-                        fill="none"
-                      >
-                        <path d="M0 0H30V2H0V0Z" fill="white"></path>
-                        <path d="M0 8H30V10H0V8Z" fill="white"></path>
-                        <rect y="16" width="30" height="2" fill="white"></rect>
-                      </svg>
+                      <img src={burgerIcon} alt="Burger"></img>
                     </button>
                   </div>
                 </div>
