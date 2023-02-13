@@ -1,7 +1,10 @@
 import { Component } from "react";
+import Slider from "react-slick";
 import './App.css';
-import './Slick.css';
 import './Reset.css';
+import './Slick.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import logo from './logo.png';
 import playIcon from './assets/icons/play-button.svg';
 import headerPicture from './assets/images/header.png';
@@ -29,6 +32,34 @@ import youtubeIcon from './assets/icons/socials/youtube.svg';
 
 class App extends Component {
   render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1580,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 760,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
+
+    };
     return (
       <div className="body">
         <div className="wrapper">
@@ -138,7 +169,7 @@ class App extends Component {
               </div>
             </section>
 
-            <section className="slider slick-slider">
+            <Slider className="slider slick-slider" {...settings}>
               <div className="slider__box slick-list">
                 <div className="slider__item">
                   <div className="slider__picture">
@@ -230,7 +261,7 @@ class App extends Component {
               </div>
 
               <div className="slick-dots"></div>
-            </section>
+            </Slider>
 
             <section className="solutions">
               <div className="solutions__container container">
