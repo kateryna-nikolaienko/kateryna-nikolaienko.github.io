@@ -31,11 +31,28 @@ import twitterIcon from './assets/icons/socials/twitter.svg';
 import youtubeIcon from './assets/icons/socials/youtube.svg';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonMenu: "Sign In",
+      nameCompany: "Artificial intelligence & Cyber security",
+      headerContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries " +
+          "for previewing layouts and visual mockups.",
+      aboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries " +
+          "for previewing layouts and visual mockups.",
+      email: "Company@gmail.com.com",
+      phone: "(064) 332-1233",
+      location: "450 Wall Street, USA, New York",
+      link: "www.company.com"
+    }
+  }
   render() {
+    const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, link} = this.state;
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 2000,
       slidesToShow: 4,
       slidesToScroll: 1,
       responsive: [
@@ -92,7 +109,7 @@ class App extends Component {
                   </nav>
 
                   <div className="header__box">
-                    <a className="menu__button" href="/"> Sign In </a>
+                    <a className="menu__button" href="/"> {buttonMenu} </a>
                     <button className="menu__burger">
                       <img src={burgerIcon} alt="Burger"></img>
                     </button>
@@ -105,12 +122,10 @@ class App extends Component {
                       Next genaretion platform
                     </span>
                     <h1 className="header__content-title">
-                      Artificial intelligence & Syber security
+                      {nameCompany}
                     </h1>
                     <p className="header__content-text">
-                      Lorem ipsum is placeholder text commonly used in the graphic,
-                      print, and publishing industries for previewing layouts and
-                      visual mockups.
+                      {headerContent}
                     </p>
                     <div className="header__content-buttons">
                       <a className="header__btn" href="/">Get Started</a>
@@ -159,9 +174,7 @@ class App extends Component {
                       Apply AI, Deep Learning and Data Sciece to solve
                     </h2>
                     <p className="about__inner-text">
-                      Lorem ipsum is placeholder text commonly used in the graphic,
-                      print, and publishing industries for previewing layouts and
-                      visual mockups.
+                      {aboutContent}
                     </p>
                     <a className="about__inner-button" href="/"> Learn More </a>
                   </div>
@@ -245,21 +258,6 @@ class App extends Component {
                 </div>
               </div>
 
-              <div className="slider__box">
-                <div className="slider__item">
-                  <div className="slider__picture">
-                    <img src={sliderPicture3} alt="" />
-                  </div>
-                  <h4 className="slider__title">
-                    Naxly as the Winners in Global Agency Awards
-                  </h4>
-                  <p className="slider__text">
-                    Lorem ipsum is placeholder text commonly used in print, and
-                    publishing industries for previewing layouts and visual mockups.
-                  </p>
-                </div>
-              </div>
-
               <div className="slick-dots"></div>
             </Slider>
 
@@ -316,7 +314,7 @@ class App extends Component {
                         src={emailIcon}
                         alt="Email"
                       />
-                      Company@gmail.com.com
+                      {email}
                     </a>
                     <a className="footer__inner-phone" href="tel:064-332-1233">
                       <img
@@ -324,7 +322,7 @@ class App extends Component {
                         src={phoneIcon}
                         alt="Phone"
                       />
-                      Phone: (064) 332-1233
+                      Phone: {phone}
                     </a>
                     <a
                       className="footer__inner-location"
@@ -335,7 +333,7 @@ class App extends Component {
                         src={locationIcon}
                         alt="location"
                       />
-                      450 Wall Street, USA, New York
+                      {location}
                     </a>
                   </div>
                 </div>
@@ -421,7 +419,7 @@ class App extends Component {
                     print, and layouts and visual mockups.
                   </p>
                   <a className="footer__inner-site" href="https://www.company.com">
-                    www.company.com
+                    {link}
                   </a>
 
                   <ul className="footer__socials">
