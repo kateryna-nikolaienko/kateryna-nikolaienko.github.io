@@ -40,18 +40,22 @@ class App extends Component {
           "for previewing layouts and visual mockups.",
       aboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries " +
           "for previewing layouts and visual mockups.",
+      footerCompanyContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual mockups.",
+      footerAboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual mockups.",
       email: "Company@gmail.com.com",
       phone: "(064) 332-1233",
       location: "450 Wall Street, USA, New York",
-      link: "www.company.com"
+      link: "www.company.com",
+      cardContent: [
+
+      ]
     }
   }
   render() {
-    const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, link} = this.state;
+    const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent, footerAboutContent, link} = this.state;
     const settings = {
       dots: true,
       infinite: true,
-      autoplay: true,
       autoplaySpeed: 2000,
       slidesToShow: 4,
       slidesToScroll: 1,
@@ -257,8 +261,6 @@ class App extends Component {
                   </p>
                 </div>
               </div>
-
-              <div className="slick-dots"></div>
             </Slider>
 
             <section className="solutions">
@@ -303,8 +305,7 @@ class App extends Component {
                     <img src={footerLogo} alt="Logotype" />
                   </a>
                   <p className="footer__inner-text">
-                    Lorem ipsum is placeholder text commonly used in the graphic,
-                    print, and layouts and visual mockups.
+                    {footerCompanyContent}
                   </p>
 
                   <div className="footer__inner-contacts">
@@ -415,8 +416,7 @@ class App extends Component {
                 <div className="footer__inner-about">
                   <h4 className="footer__inner-title">ABOUT THE STORE</h4>
                   <p className="footer__inner-text footer__text">
-                    Lorem ipsum is placeholder text commonly used in the graphic,
-                    print, and layouts and visual mockups.
+                    {footerAboutContent}
                   </p>
                   <a className="footer__inner-site" href="https://www.company.com">
                     {link}
