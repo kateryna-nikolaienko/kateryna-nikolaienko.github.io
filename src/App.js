@@ -40,19 +40,19 @@ class App extends Component {
           "for previewing layouts and visual mockups.",
       aboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries " +
           "for previewing layouts and visual mockups.",
-      footerCompanyContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual mockups.",
-      footerAboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual mockups.",
+      footerCompanyContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual " +
+          "mockups.",
+      footerAboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual " +
+          "mockups.",
       email: "Company@gmail.com.com",
       phone: "(064) 332-1233",
       location: "450 Wall Street, USA, New York",
-      link: "www.company.com",
-      cardContent: [
-
-      ]
+      link: "www.company.com"
     }
   }
   render() {
-    const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent, footerAboutContent, link} = this.state;
+    const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
+      footerAboutContent, link} = this.state;
     const settings = {
       dots: true,
       infinite: true,
@@ -123,7 +123,7 @@ class App extends Component {
                 <div className="header__content">
                   <div className="header__content-left">
                     <span className="header__content-subtitle">
-                      Next genaretion platform
+                      Next generation platform
                     </span>
                     <h1 className="header__content-title">
                       {nameCompany}
@@ -175,7 +175,7 @@ class App extends Component {
                   </div>
                   <div className="about__inner-content">
                     <h2 className="about__inner-title">
-                      Apply AI, Deep Learning and Data Sciece to solve
+                      Apply AI, Deep Learning and Data Science to solve
                     </h2>
                     <p className="about__inner-text">
                       {aboutContent}
@@ -379,9 +379,7 @@ class App extends Component {
                       <a className="footer__inner-link" href="/"> Latest News </a>
                     </li>
                     <li className="footer__inner-item">
-                      <a className="footer__inner-link" href="/">
-                        Terms & Conditions
-                      </a>
+                      <a className="footer__inner-link" href="/"> Terms & Conditions </a>
                     </li>
                     <li className="footer__inner-item">
                       <a className="footer__inner-link" href="/"> Purchase Theme </a>
