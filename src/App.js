@@ -47,8 +47,31 @@ class App extends Component {
       email: "Company@gmail.com.com",
       phone: "(064) 332-1233",
       location: "450 Wall Street, USA, New York",
-      link: "www.company.com"
+      link: "www.company.com",
+      attacks: [
+        { year: 1988, name: "Morris Worm", description: "The first large-scale cyberattack that spread over the " +
+              "Internet and affected more than 6,000 computers."},
+        { year: 2000, name: "ILOVEYOU",    description: "One of the most famous viruses that spread through e-mail " +
+              "and caused significant damage."},
+        { year: 2007, name: "Storm Worm",  description: "A massive botnet that was used to send spam and conduct " +
+              "DDoS attacks."},
+        { year: 2017, name: "WannaCry",    description: "A massive cyber attack that affected computer systems " +
+              "around the world, including healthcare systems and financial institutions."},
+        { year: 2020, name: "SolarWinds",  description: "The hacking attack on the American company SolarWinds, " +
+              "which took place due to a broken software package, affected many large companies and institutions."}
+      ]
     }
+  }
+  renderTableContent() {
+    return this.state.attacks.map((item, index) => {
+      return (
+          <tr key={index}>
+            <td>{item.year}</td>
+            <td>{item.name}</td>
+            <td>{item.description}</td>
+          </tr>
+      );
+    });
   }
   render() {
     const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
@@ -78,7 +101,7 @@ class App extends Component {
             slidesToShow: 1,
           }
         }
-      ]
+      ],
 
     };
     return (
@@ -167,6 +190,25 @@ class App extends Component {
           </header>
 
           <main className="page">
+
+            <section className="table">
+              <div className="table__container container">
+                <h1 className="table__title">The most popular cyber attacks</h1>
+                <table className="table__inner">
+                  <tbody>
+                  <tr className="table__header">
+                    <th>Year</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+
+                  {this.renderTableContent()}
+
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
             <section className="about">
               <div className="about__container container">
                 <div className="about__inner">

@@ -133,6 +133,28 @@
 	flex: 1 1 auto;
 }
 
+.table {
+	padding-top: 50px;
+}
+
+.table__inner {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.table__header {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #3A68B8;
+	color: #fff;
+}
+
 .about {
 	padding: 130px 0 170px;
 	background-color: #030A17;
@@ -152,7 +174,8 @@
 	max-width: 485px;
 }
 
-.about__inner-title {
+.about__inner-title,
+.table__title {
 	font-weight: 700;
 	font-size: 40px;
 	line-height: 52px;
