@@ -93,6 +93,12 @@ class App extends Component {
     alert("added new attack");
   }
 
+  removeLastElement = () => {
+    const {attacks} = this.state;
+    attacks.pop();
+    this.setState(attacks);
+  }
+
   render() {
     const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
       footerAboutContent, link} = this.state;
