@@ -59,10 +59,11 @@ class App extends Component {
               "around the world, including healthcare systems and financial institutions."},
         { year: 2020, name: "SolarWinds",  description: "The hacking attack on the American company SolarWinds, " +
               "which took place due to a broken software package, affected many large companies and institutions."}
-      ]
+      ],
+      ascending: true
     }
   }
-  renderTableContent() {
+  renderTableContent = () => {
     return this.state.attacks.map((item, index) => {
       return (
           <tr key={index}>
@@ -73,6 +74,25 @@ class App extends Component {
       );
     });
   }
+
+  sortArray = () => {
+    const {attacks, ascending} = this.state;
+    attacks.sort((a, b) => {
+      return ascending ? a.year - b.year : b.year - a.year;
+    });
+    this.setState({attacks, ascending: !ascending});
+  }
+
+  // sortArray = () => {
+  //   const {attacks, ascending} = this.state;
+  //
+  //   this.setState({attacks, ascending: !ascending});
+  // }
+
+  addNewObject = () => {
+    alert("added new attack");
+  }
+
   render() {
     const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
       footerAboutContent, link} = this.state;
@@ -206,6 +226,9 @@ class App extends Component {
 
                   </tbody>
                 </table>
+                <button className="table__btn" onClick={this.sortArray}>Sort by years</button>
+                <button className="table__btn" onClick={this.addNewObject}>Add new attack</button>
+                <button className="table__btn" onClick={this.removeLastElement}>Remove</button>
               </div>
             </section>
 
