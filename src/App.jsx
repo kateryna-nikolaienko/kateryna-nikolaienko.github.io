@@ -49,16 +49,36 @@ class App extends Component {
       location: "450 Wall Street, USA, New York",
       link: "www.company.com",
       attacks: [
-        { year: 1988, name: "Morris Worm", description: "The first large-scale cyberattack that spread over the " +
-              "Internet and affected more than 6,000 computers."},
-        { year: 2000, name: "ILOVEYOU",    description: "One of the most famous viruses that spread through e-mail " +
-              "and caused significant damage."},
-        { year: 2007, name: "Storm Worm",  description: "A massive botnet that was used to send spam and conduct " +
-              "DDoS attacks."},
-        { year: 2017, name: "WannaCry",    description: "A massive cyber attack that affected computer systems " +
-              "around the world, including healthcare systems and financial institutions."},
-        { year: 2020, name: "SolarWinds",  description: "The hacking attack on the American company SolarWinds, " +
-              "which took place due to a broken software package, affected many large companies and institutions."}
+        { year: 1988,
+          description: {
+            name: "Morris Worm",
+            damage: "The first large-scale cyberattack that spread over the " +
+              "Internet and affected more than 6,000 computers."
+          }},
+        { year: 2000,
+          description: {
+            name: "ILOVEYOU",
+            damage: "One of the most famous viruses that spread through e-mail " +
+              "and caused significant damage."
+        }},
+        { year: 2007,
+          description: {
+            name: "Storm Worm",
+            damage: "A massive botnet that was used to send spam and conduct " +
+              "DDoS attacks."
+        }},
+        { year: 2017,
+          description: {
+            name: "WannaCry",
+            damage: "A massive cyber attack that affected computer systems " +
+              "around the world, including healthcare systems and financial institutions."
+        }},
+        { year: 2020,
+          description: {
+            name: "SolarWinds",
+            damage: "The hacking attack on the American company SolarWinds, " +
+              "which took place due to a broken software package, affected many large companies and institutions."
+        }}
       ],
       ascending: true
     }
@@ -68,8 +88,8 @@ class App extends Component {
       return (
           <tr key={index}>
             <td>{item.year}</td>
-            <td>{item.name}</td>
-            <td>{item.description}</td>
+            <td>{item.description.name}</td>
+            <td>{item.description.damage}</td>
           </tr>
       );
     });
@@ -77,7 +97,7 @@ class App extends Component {
 
   removeElementFromObject = () => {
     let {attacks} = this.state;
-    delete attacks[0].description;
+    delete attacks[0].description.damage;
     this.setState(attacks[0]);
   }
 
@@ -90,22 +110,22 @@ class App extends Component {
   }
 
   // sortArray = () => {
-  //   let {attacks, ascending} = this.state;
+  //   const {attacks, ascending} = this.state;
   //
-  //   attacks = attacks.reduce((accumulator, currentValue) => {
   //
-  //     return accumulator;
-  //   }, []);
   //
   //   this.setState({attacks, ascending: !ascending});
   // }
 
-
   addNewObject = () => {
     const {attacks} = this.state;
-    const newObject = { year: 2017, name: "Petya",  description: "The program encrypts files on the victim " +
-          "computer's hard drive, and also overwrites and encrypts the master boot record — the data needed to boot " +
-          "the operating system."};
+    const newObject = { year: 2017,
+        description: {
+          name: "Petya",
+          damage: "The program encrypts files on the victim " +
+              "computer's hard drive, and also overwrites and encrypts the master boot record — the data needed to boot " +
+              "the operating system."
+        }};
     const newArray = [...attacks, newObject];
     this.setState({attacks: newArray});
   }
