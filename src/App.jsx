@@ -75,6 +75,12 @@ class App extends Component {
     });
   }
 
+  removeElementFromObject = () => {
+    let {attacks} = this.state;
+    delete attacks[0].description;
+    this.setState(attacks[0]);
+  }
+
   sortArray = () => {
     const {attacks, ascending} = this.state;
     attacks.sort((a, b) => {
@@ -84,13 +90,24 @@ class App extends Component {
   }
 
   // sortArray = () => {
-  //   const {attacks, ascending} = this.state;
+  //   let {attacks, ascending} = this.state;
+  //
+  //   attacks = attacks.reduce((accumulator, currentValue) => {
+  //
+  //     return accumulator;
+  //   }, []);
   //
   //   this.setState({attacks, ascending: !ascending});
   // }
 
+
   addNewObject = () => {
-    alert("added new attack");
+    const {attacks} = this.state;
+    const newObject = { year: 2017, name: "Petya",  description: "The program encrypts files on the victim " +
+          "computer's hard drive, and also overwrites and encrypts the master boot record — the data needed to boot " +
+          "the operating system."};
+    const newArray = [...attacks, newObject];
+    this.setState({attacks: newArray});
   }
 
   removeLastElement = () => {
@@ -235,6 +252,7 @@ class App extends Component {
                 <button className="table__btn" onClick={this.sortArray}>Sort by years</button>
                 <button className="table__btn" onClick={this.addNewObject}>Add new attack</button>
                 <button className="table__btn" onClick={this.removeLastElement}>Remove</button>
+                <button className="table__btn" onClick={this.removeElementFromObject}>Remove element from object</button>
               </div>
             </section>
 
