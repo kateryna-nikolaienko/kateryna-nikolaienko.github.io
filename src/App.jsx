@@ -84,9 +84,9 @@ class App extends Component {
     }
   }
   renderTableContent = () => {
-    return this.state.attacks.map((item, index) => {
+    return this.state.attacks.map((item) => {
       return (
-          <tr key={index}>
+          <tr key={item.year}>
             <td>{item.year}</td>
             <td>{item.description.name}</td>
             <td>{item.description.damage}</td>
@@ -101,21 +101,28 @@ class App extends Component {
     this.setState(attacks[0]);
   }
 
-  sortArray = () => {
-    const {attacks, ascending} = this.state;
-    attacks.sort((a, b) => {
-      return ascending ? a.year - b.year : b.year - a.year;
-    });
-    this.setState({attacks, ascending: !ascending});
+  addElementToObject = () => {
+    let {attacks} = this.state;
+    attacks[0].description.damage = "The first large-scale cyberattack that spread over the " +
+        "Internet and affected more than 6,000 computers.";
+    this.setState(attacks[0]);
   }
 
   // sortArray = () => {
   //   const {attacks, ascending} = this.state;
-  //
-  //
-  //
+  //   attacks.sort((a, b) => {
+  //     return ascending ? a.year - b.year : b.year - a.year;
+  //   });
   //   this.setState({attacks, ascending: !ascending});
   // }
+
+  sortArray = () => {
+    const {attacks, ascending} = this.state;
+
+
+
+    this.setState({attacks, ascending: !ascending});
+  }
 
   addNewObject = () => {
     const {attacks} = this.state;
@@ -273,6 +280,7 @@ class App extends Component {
                 <button className="table__btn" onClick={this.addNewObject}>Add new attack</button>
                 <button className="table__btn" onClick={this.removeLastElement}>Remove</button>
                 <button className="table__btn" onClick={this.removeElementFromObject}>Remove element from object</button>
+                <button className="table__btn" onClick={this.addElementToObject}>Add element to object</button>
               </div>
             </section>
 
