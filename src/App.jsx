@@ -84,9 +84,9 @@ class App extends Component {
     }
   }
   renderTableContent = () => {
-    return this.state.attacks.map((item) => {
+    return this.state.attacks.map((item, index) => {
       return (
-          <tr key={item.year}>
+          <tr key={index}>
             <td>{item.year}</td>
             <td>{item.description.name}</td>
             <td>{item.description.damage}</td>
@@ -117,11 +117,19 @@ class App extends Component {
   // }
 
   sortArray = () => {
-    const {attacks, ascending} = this.state;
+    const {attacks} = this.state;
 
+    for (let i = attacks.length - 1; i >= 0; i--) {
+      for (let j = 1; j <= i; j++) {
+        if (attacks[j - 1].year < attacks[j].year) {
+          const buffer = attacks[j - 1];
+          attacks[j - 1] = attacks[j];
+          attacks[j] = buffer;
+        }
+      }
+    }
 
-
-    this.setState({attacks, ascending: !ascending});
+    this.setState({attacks});
   }
 
   addNewObject = () => {
@@ -141,6 +149,16 @@ class App extends Component {
     const {attacks} = this.state;
     attacks.pop();
     this.setState(attacks);
+  }
+
+  rewriteBySpread = () => {
+    const {attacks} = this.state;
+
+    const object = attacks[0];
+    const newObject = {year: "2080"};
+    const sum = {...object, ...newObject};
+
+    this.setState(attacks[0] = sum);
   }
 
   render() {
@@ -279,8 +297,9 @@ class App extends Component {
                 <button className="table__btn" onClick={this.sortArray}>Sort by years</button>
                 <button className="table__btn" onClick={this.addNewObject}>Add new attack</button>
                 <button className="table__btn" onClick={this.removeLastElement}>Remove</button>
-                <button className="table__btn" onClick={this.removeElementFromObject}>Remove element from object</button>
-                <button className="table__btn" onClick={this.addElementToObject}>Add element to object</button>
+                <button className="table__btn" onClick={this.removeElementFromObject}>Remove element</button>
+                <button className="table__btn" onClick={this.addElementToObject}>Add element</button>
+                <button className="table__btn" onClick={this.rewriteBySpread}>Spread operator</button>
               </div>
             </section>
 
