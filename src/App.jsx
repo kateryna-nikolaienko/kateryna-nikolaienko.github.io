@@ -1,10 +1,10 @@
-import { Component } from "react";
-import Slider from "react-slick";
+import { Component } from 'react';
+import Slider from 'react-slick';
 import './App.css';
 import './Reset.css';
 import './Slick.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import logo from './logo.png';
 import playIcon from './assets/icons/play-button.svg';
 import headerPicture from './assets/images/header.png';
@@ -34,136 +34,151 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonMenu: "Sign In",
-      nameCompany: "Artificial intelligence & Cyber security",
-      headerContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries " +
-          "for previewing layouts and visual mockups.",
-      aboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries " +
-          "for previewing layouts and visual mockups.",
-      footerCompanyContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual " +
-          "mockups.",
-      footerAboutContent: "Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual " +
-          "mockups.",
-      email: "Company@gmail.com.com",
-      phone: "(064) 332-1233",
-      location: "450 Wall Street, USA, New York",
-      link: "www.company.com",
+      buttonMenu: 'Sign In',
+      nameCompany: 'Artificial intelligence & Cyber security',
+      headerContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries '
+          + 'for previewing layouts and visual mockups.',
+      aboutContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries '
+          + 'for previewing layouts and visual mockups.',
+      // eslint-disable-next-line max-len
+      footerCompanyContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual '
+          + 'mockups.',
+      footerAboutContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual '
+          + 'mockups.',
+      email: 'Company@gmail.com.com',
+      phone: '(064) 332-1233',
+      location: '450 Wall Street, USA, New York',
+      link: 'www.company.com',
       attacks: [
-        { year: 1988,
+        {
+          year: 1988,
           description: {
-            name: "Morris Worm",
-            damage: "The first large-scale cyberattack that spread over the " +
-              "Internet and affected more than 6,000 computers."
-          }},
-        { year: 2000,
+            name: 'Morris Worm',
+            damage: 'The first large-scale cyberattack that spread over the '
+              + 'Internet and affected more than 6,000 computers.'
+          } 
+        },
+        {
+          year: 2000,
           description: {
-            name: "ILOVEYOU",
-            damage: "One of the most famous viruses that spread through e-mail " +
-              "and caused significant damage."
-        }},
-        { year: 2007,
+            name: 'ILOVEYOU',
+            damage: 'One of the most famous viruses that spread through e-mail '
+              + 'and caused significant damage.'
+          } 
+        },
+        {
+          year: 2007,
           description: {
-            name: "Storm Worm",
-            damage: "A massive botnet that was used to send spam and conduct " +
-              "DDoS attacks."
-        }},
-        { year: 2017,
+            name: 'Storm Worm',
+            damage: 'A massive botnet that was used to send spam and conduct '
+              + 'DDoS attacks.'
+          } 
+        },
+        {
+          year: 2017,
           description: {
-            name: "WannaCry",
-            damage: "A massive cyber attack that affected computer systems " +
-              "around the world, including healthcare systems and financial institutions."
-        }},
-        { year: 2020,
+            name: 'WannaCry',
+            damage: 'A massive cyber attack that affected computer systems '
+              + 'around the world, including healthcare systems and financial institutions.'
+          } 
+        },
+        {
+          year: 2020,
           description: {
-            name: "SolarWinds",
-            damage: "The hacking attack on the American company SolarWinds, " +
-              "which took place due to a broken software package, affected many large companies and institutions."
-        }}
+            name: 'SolarWinds',
+            damage: 'The hacking attack on the American company SolarWinds, '
+              + 'which took place due to a broken software package, affected many large companies and institutions.'
+          } 
+        }
       ],
       ascending: true
-    }
+    };
   }
+
   renderTableContent = () => {
-    return this.state.attacks.map((item, index) => {
+    return this.state.attacks.map((item) => {
       return (
-          <tr key={index}>
-            <td>{item.year}</td>
-            <td>{item.description.name}</td>
-            <td>{item.description.damage}</td>
-          </tr>
+        <tr key={item.year}>
+          <td>{item.year}</td>
+          <td>{item.description.name}</td>
+          <td>{item.description.damage}</td>
+        </tr>
       );
     });
-  }
+  };
 
   removeElementFromObject = () => {
-    let {attacks} = this.state;
+    const { attacks } = this.state;
     delete attacks[0].description.damage;
     this.setState(attacks[0]);
-  }
+  };
 
   addElementToObject = () => {
-    let {attacks} = this.state;
-    attacks[0].description.damage = "The first large-scale cyberattack that spread over the " +
-        "Internet and affected more than 6,000 computers.";
+    const { attacks } = this.state;
+    attacks[0].description.damage = 'The first large-scale cyberattack that spread over the '
+        + 'Internet and affected more than 6,000 computers.';
     this.setState(attacks[0]);
-  }
-
-  // sortArray = () => {
-  //   const {attacks, ascending} = this.state;
-  //   attacks.sort((a, b) => {
-  //     return ascending ? a.year - b.year : b.year - a.year;
-  //   });
-  //   this.setState({attacks, ascending: !ascending});
-  // }
+  };
 
   sortArray = () => {
-    const {attacks} = this.state;
+    const { attacks, ascending } = this.state;
+    attacks.sort((a, b) => {
+      return ascending ? a.year - b.year : b.year - a.year;
+    });
+    this.setState({ attacks, ascending: !ascending });
+  };
 
-    for (let i = attacks.length - 1; i >= 0; i--) {
-      for (let j = 1; j <= i; j++) {
-        if (attacks[j - 1].year < attacks[j].year) {
-          const buffer = attacks[j - 1];
-          attacks[j - 1] = attacks[j];
-          attacks[j] = buffer;
-        }
-      }
-    }
-
-    this.setState({attacks});
-  }
+  // sortArray = () => {
+  //   const { attacks } = this.state;
+  //
+  //   for (let i = attacks.length - 1; i >= 0; i--) {
+  //     for (let j = 1; j <= i; j++) {
+  //       if (attacks[j - 1].year < attacks[j].year) {
+  //         const buffer = attacks[j - 1];
+  //         attacks[j - 1] = attacks[j];
+  //         attacks[j] = buffer;
+  //       }
+  //     }
+  //    }
+  //
+  //   this.setState({ attacks });
+  // };
 
   addNewObject = () => {
-    const {attacks} = this.state;
-    const newObject = { year: 2017,
-        description: {
-          name: "Petya",
-          damage: "The program encrypts files on the victim " +
-              "computer's hard drive, and also overwrites and encrypts the master boot record — the data needed to boot " +
-              "the operating system."
-        }};
+    const { attacks } = this.state;
+    const newObject = {
+      year: 2017,
+      description: {
+        name: 'Petya',
+        damage: 'The program encrypts files on the victim computers hard drive, and also overwrites and encrypts '
+          + 'the master boot record — the data needed to boot the operating system.'
+      } 
+    };
     const newArray = [...attacks, newObject];
-    this.setState({attacks: newArray});
-  }
+    this.setState({ attacks: newArray });
+  };
 
   removeLastElement = () => {
-    const {attacks} = this.state;
+    const { attacks } = this.state;
     attacks.pop();
     this.setState(attacks);
-  }
+  };
 
   rewriteBySpread = () => {
-    const {attacks} = this.state;
+    const { attacks } = this.state;
 
     const object = attacks[0];
-    const newObject = {year: "2080"};
-    const sum = {...object, ...newObject};
+    const newObject = { year: '2080' };
+    const sum = { ...object, ...newObject };
 
     this.setState(attacks[0] = sum);
-  }
+  };
 
   render() {
-    const {buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
-      footerAboutContent, link} = this.state;
+    const {
+      buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
+      footerAboutContent, link 
+    } = this.state;
     const settings = {
       dots: true,
       infinite: true,
@@ -200,7 +215,7 @@ class App extends Component {
               <div className="header__inner">
                 <div className="header__top">
                   <a className="logo" href="/">
-                    <img src={logo} alt="Logo"></img>
+                    <img src={logo} alt="Logo" />
                   </a>
 
                   <nav className="menu">
@@ -224,9 +239,13 @@ class App extends Component {
                   </nav>
 
                   <div className="header__box">
-                    <a className="menu__button" href="/"> {buttonMenu} </a>
-                    <button className="menu__burger">
-                      <img src={burgerIcon} alt="Burger"></img>
+                    <a className="menu__button" href="/"> 
+                      {' '}
+                      {buttonMenu}
+                      {' '}
+                    </a>
+                    <button className="menu__burger" type="button">
+                      <img src={burgerIcon} alt="Burger" />
                     </button>
                   </div>
                 </div>
@@ -284,22 +303,24 @@ class App extends Component {
                 <h1 className="table__title">The most popular cyber attacks</h1>
                 <table className="table__inner">
                   <tbody>
-                  <tr className="table__header">
-                    <th>Year</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
+                    <tr className="table__header">
+                      <th>Year</th>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
 
-                  {this.renderTableContent()}
+                    {this.renderTableContent()}
 
                   </tbody>
                 </table>
-                <button className="table__btn" onClick={this.sortArray}>Sort by years</button>
-                <button className="table__btn" onClick={this.addNewObject}>Add new attack</button>
-                <button className="table__btn" onClick={this.removeLastElement}>Remove</button>
-                <button className="table__btn" onClick={this.removeElementFromObject}>Remove element</button>
-                <button className="table__btn" onClick={this.addElementToObject}>Add element</button>
-                <button className="table__btn" onClick={this.rewriteBySpread}>Spread operator</button>
+                <button className="table__btn" onClick={this.sortArray} type="button">Sort by years</button>
+                <button className="table__btn" onClick={this.addNewObject} type="button">Add new attack</button>
+                <button className="table__btn" onClick={this.removeLastElement} type="button">Remove</button>
+                <button className="table__btn" onClick={this.removeElementFromObject} type="button">
+                  Remove element
+                </button>
+                <button className="table__btn" onClick={this.addElementToObject} type="button">Add element</button>
+                <button className="table__btn" onClick={this.rewriteBySpread} type="button">Spread operator</button>
               </div>
             </section>
 
@@ -459,7 +480,9 @@ class App extends Component {
                         src={phoneIcon}
                         alt="Phone"
                       />
-                      Phone: {phone}
+                      Phone: 
+                      {' '}
+                      {phone}
                     </a>
                     <a
                       className="footer__inner-location"
@@ -584,7 +607,7 @@ class App extends Component {
                     </li>
                   </ul>
 
-                  <button className="footer__language">
+                  <button className="footer__language" type="button">
                     English
                   </button>
                 </div>
