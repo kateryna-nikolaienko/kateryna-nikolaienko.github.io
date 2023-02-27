@@ -277,7 +277,6 @@ td, th {
 	height: 15px;
 	font-size: 0;
 	cursor: pointer;
-	opacity: 0.5;
 }
 
 .slick-dots button {
@@ -321,7 +320,7 @@ td, th {
 .footer {
 	background-color: #080E1B;
 	padding: 77px 0 146px;
-	font-family: 'Circular Std';
+	font-family: 'Circular Std', serif;
 	font-style: normal;
 	font-weight: 450;
 	font-size: 14px;
@@ -557,7 +556,7 @@ td, th {
 	.menu__list {
 		transform: translateY(-200%);
 		position: absolute;
-		top: 0px;
+		top: 0;
 		width: 100%;
 		left: 0;
 		flex-direction: column;
@@ -669,8 +668,7 @@ td, th {
 	}
 
 	.header__content-text {
-		margin: 0 auto;
-		margin-bottom: 30px;
+		margin: 0 auto 30px;
 	}
 
 	.header__content-buttons {

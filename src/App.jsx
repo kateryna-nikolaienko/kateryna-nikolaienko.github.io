@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Slider from 'react-slick';
 import './App.css';
 import './Reset.css';
@@ -40,11 +40,10 @@ class App extends Component {
           + 'for previewing layouts and visual mockups.',
       aboutContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries '
           + 'for previewing layouts and visual mockups.',
-      // eslint-disable-next-line max-len
-      footerCompanyContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual '
-          + 'mockups.',
-      footerAboutContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and visual '
-          + 'mockups.',
+      footerCompanyContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts '
+        + 'and visual mockups.',
+      footerAboutContent: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and layouts and '
+        + 'visual mockups.',
       email: 'Company@gmail.com.com',
       phone: '(064) 332-1233',
       location: '450 Wall Street, USA, New York',
@@ -96,7 +95,8 @@ class App extends Component {
   }
 
   renderTableContent = () => {
-    return this.state.attacks.map((item) => {
+    const { attacks } = this.state;
+    return attacks.map((item) => {
       return (
         <tr key={item.year}>
           <td>{item.year}</td>
@@ -160,8 +160,9 @@ class App extends Component {
 
   removeLastElement = () => {
     const { attacks } = this.state;
-    attacks.pop();
-    this.setState(attacks);
+    const newAttacks = [...attacks];
+    newAttacks.pop();
+    this.setState({ attacks: newAttacks });
   };
 
   rewriteBySpread = () => {
@@ -239,7 +240,7 @@ class App extends Component {
                   </nav>
 
                   <div className="header__box">
-                    <a className="menu__button" href="/"> 
+                    <a className="menu__button" href="/">
                       {' '}
                       {buttonMenu}
                       {' '}
@@ -343,7 +344,15 @@ class App extends Component {
               </div>
             </section>
 
-            <Slider className="slider slick-slider" {...settings}>
+            <Slider
+              className="slider slick-slider"
+              prop1={settings.dots}
+              prop2={settings.infinite}
+              prop3={settings.autoplaySpeed}
+              prop4={settings.slidesToShow}
+              prop5={settings.slidesToScroll}
+              prop6={settings.responsive}
+            >
               <div className="slider__box slick-list">
                 <div className="slider__item">
                   <div className="slider__picture">
@@ -480,7 +489,7 @@ class App extends Component {
                         src={phoneIcon}
                         alt="Phone"
                       />
-                      Phone: 
+                      Phone:
                       {' '}
                       {phone}
                     </a>
