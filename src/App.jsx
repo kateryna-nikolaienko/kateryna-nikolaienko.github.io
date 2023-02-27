@@ -115,19 +115,27 @@ class App extends Component {
   };
 
   addElementToObject = () => {
-    const { attacks } = this.state;
-    attacks[0].description.damage = 'The first large-scale cyberattack that spread over the '
-        + 'Internet and affected more than 6,000 computers.';
-    this.setState(attacks[0]);
+    this.setState(({ attacks }) => {
+      const newAttacks = [...attacks];
+      newAttacks[0] = {
+        ...newAttacks[0],
+        description: {
+          ...newAttacks[0].description,
+          damage: 'The first large-scale cyberattack that spread over the '
+            + 'Internet and affected more than 6,000 computers.',
+        }
+      };
+      return { attacks: newAttacks };
+    });
   };
 
   sortArray = () => {
     const { attacks, ascending } = this.state;
-    const newArray = [...attacks];
-    newArray.sort((a, b) => {
+    const newAttacks = [...attacks];
+    newAttacks.sort((a, b) => {
       return ascending ? a.year - b.year : b.year - a.year;
     });
-    this.setState({ attacks: newArray, ascending: !ascending });
+    this.setState({ attacks: newAttacks, ascending: !ascending });
   };
 
   // sortArray = () => {
@@ -157,8 +165,8 @@ class App extends Component {
           + 'the master boot record — the data needed to boot the operating system.'
       } 
     };
-    const newArray = [...attacks, newObject];
-    this.setState({ attacks: newArray });
+    const newAttacks = [...attacks, newObject];
+    this.setState({ attacks: newAttacks });
   };
 
   removeLastElement = () => {
