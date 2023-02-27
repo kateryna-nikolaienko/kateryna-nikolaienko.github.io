@@ -109,7 +109,8 @@ class App extends Component {
 
   removeElementFromObject = () => {
     const { attacks } = this.state;
-    delete attacks[0].description.damage;
+    const [object] = attacks;
+    delete object.description.damage;
     this.setState(attacks[0]);
   };
 
@@ -122,26 +123,28 @@ class App extends Component {
 
   sortArray = () => {
     const { attacks, ascending } = this.state;
-    attacks.sort((a, b) => {
+    const newArray = [...attacks];
+    newArray.sort((a, b) => {
       return ascending ? a.year - b.year : b.year - a.year;
     });
-    this.setState({ attacks, ascending: !ascending });
+    this.setState({ attacks: newArray, ascending: !ascending });
   };
 
   // sortArray = () => {
   //   const { attacks } = this.state;
+  //   const newAttacks = [...attacks];
   //
-  //   for (let i = attacks.length - 1; i >= 0; i--) {
-  //     for (let j = 1; j <= i; j++) {
-  //       if (attacks[j - 1].year < attacks[j].year) {
-  //         const buffer = attacks[j - 1];
-  //         attacks[j - 1] = attacks[j];
-  //         attacks[j] = buffer;
+  //   for (let i = newAttacks.length - 1; i >= 0; i -= 1) {
+  //     for (let j = 1; j <= i; j += 1) {
+  //       if (newAttacks[j - 1].year < newAttacks[j].year) {
+  //         const buffer = newAttacks[j - 1];
+  //         newAttacks[j - 1] = newAttacks[j];
+  //         newAttacks[j] = buffer;
   //       }
   //     }
-  //    }
+  //   }
   //
-  //   this.setState({ attacks });
+  //   this.setState({ attacks: newAttacks });
   // };
 
   addNewObject = () => {
@@ -168,11 +171,11 @@ class App extends Component {
   rewriteBySpread = () => {
     const { attacks } = this.state;
 
-    const object = attacks[0];
+    const [object, ...rest] = attacks;
     const newObject = { year: '2080' };
     const sum = { ...object, ...newObject };
 
-    this.setState(attacks[0] = sum);
+    this.setState({ attacks: [sum, ...rest] });
   };
 
   render() {
