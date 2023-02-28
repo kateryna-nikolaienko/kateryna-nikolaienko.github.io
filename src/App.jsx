@@ -90,7 +90,7 @@ class App extends Component {
           } 
         }
       ],
-      ascending: true
+      ascending: true,
     };
   }
 
@@ -110,8 +110,10 @@ class App extends Component {
   removeElementFromObject = () => {
     const { attacks } = this.state;
     const [object] = attacks;
-    delete object.description.damage;
-    this.setState(attacks[0]);
+    const updatedObject = { ...object };
+    delete updatedObject.description.damage;
+    const updatedAttacks = [updatedObject, ...attacks.slice(1)];
+    this.setState({ attacks: updatedAttacks });
   };
 
   addElementToObject = () => {
@@ -122,7 +124,7 @@ class App extends Component {
         description: {
           ...newAttacks[0].description,
           damage: 'The first large-scale cyberattack that spread over the '
-            + 'Internet and affected more than 6,000 computers.',
+             + 'Internet and affected more than 6,000 computers.',
         }
       };
       return { attacks: newAttacks };
@@ -189,7 +191,7 @@ class App extends Component {
   render() {
     const {
       buttonMenu, nameCompany, headerContent, aboutContent, email, phone, location, footerCompanyContent,
-      footerAboutContent, link 
+      footerAboutContent, link
     } = this.state;
     const settings = {
       dots: true,
@@ -217,8 +219,8 @@ class App extends Component {
           }
         }
       ],
-
     };
+
     return (
       <div className="body">
         <div className="wrapper">
@@ -355,15 +357,7 @@ class App extends Component {
               </div>
             </section>
 
-            <Slider
-              className="slider slick-slider"
-              prop1={settings.dots}
-              prop2={settings.infinite}
-              prop3={settings.autoplaySpeed}
-              prop4={settings.slidesToShow}
-              prop5={settings.slidesToScroll}
-              prop6={settings.responsive}
-            >
+            <Slider className="slider slick-slider" {...settings}>
               <div className="slider__box slick-list">
                 <div className="slider__item">
                   <div className="slider__picture">
