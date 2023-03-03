@@ -45,7 +45,7 @@ class App extends Component {
       <div className="body">
         <div className="wrapper">
 
-          <Header className="header" nameCompany={nameCompany} headerContent={headerContent} />
+          <Header nameCompany={nameCompany} headerContent={headerContent} />
 
           <main className="page">
 
@@ -60,7 +60,6 @@ class App extends Component {
           </main>
 
           <Footer
-            className="footer"
             email={email}
             phone={phone}
             link={link}

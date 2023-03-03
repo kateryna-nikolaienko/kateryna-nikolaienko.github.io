@@ -113,6 +113,7 @@
 	transition: 0.5s;
 	color: #fff;
 	border: none;
+	cursor: pointer;
 }
 
 .header__btn-box {
@@ -225,6 +226,7 @@ td, th {
 	transition: 0.5s;
 	color: #fff;
 	border: none;
+	cursor: pointer;
 }
 
 .slider {
@@ -283,8 +285,11 @@ td, th {
 	margin-right: 10px;
 	width: 15px;
 	height: 15px;
-	font-size: 0;
 	cursor: pointer;
+}
+
+.slick-dots li button:before {
+	font-size: 0;
 }
 
 .slick-dots button {

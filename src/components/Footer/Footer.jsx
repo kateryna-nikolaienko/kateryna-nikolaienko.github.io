@@ -13,11 +13,11 @@ import youtubeIcon from '../../assets/icons/socials/youtube.svg';
 class Footer extends Component {
   render() {
     const {
-      className, email, phone, location, footerCompanyContent, footerAboutContent, link
+      email, phone, location, footerCompanyContent, footerAboutContent, link
     } = this.props;
 
     return (
-      <footer className={className}>
+      <footer className="footer">
         <div className="footer__container container">
           <div className="footer__inner">
             <div className="footer__inner-information">
@@ -182,7 +182,6 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-  className: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,

@@ -8,11 +8,35 @@ import sliderPicture5 from '../../../assets/images/slider/5.png';
 import SliderItem from './SliderItem';
 
 class InnerSlider extends Component {
+  constructor(props) {
+    super(props);
+
+    this.sliderRef = React.createRef(); // create a reference to an object
+  }
+
+  /**
+   *  Needed for the cards in the slider to change. The function sets an interval of 500ms,
+   *  and if there is a reference to the object, we call the next one
+   */
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      if (this.sliderRef.current) {
+        this.sliderRef.current.slickNext();
+      }
+    }, 500);
+  }
+
+  /**
+   * The function is needed so that when the slider cards are removed from the screen, they do not apply spacing
+   */
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     const settings = {
       dots: true,
       infinite: true,
-      autoplaySpeed: 2000,
       slidesToShow: 4,
       slidesToScroll: 1,
       responsive: [
@@ -39,10 +63,10 @@ class InnerSlider extends Component {
 
     return (
       <Slider
+        ref={this.sliderRef}
         className="slider slick-slider"
         dots={settings.dots}
         infinite={settings.infinite}
-        autoplaySpeed={settings.autoplaySpeed}
         slidesToShow={settings.slidesToShow}
         slidesToScroll={settings.slidesToScroll}
         responsive={settings.responsive}

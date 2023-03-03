@@ -12,11 +12,11 @@ import BurgerButton from '../Buttons/BurgerButton';
 class Header extends Component {
   render() {
     const {
-      className, nameCompany, headerContent
+      nameCompany, headerContent
     } = this.props;
 
     return (
-      <header className={className}>
+      <header className="header">
         <div className="container">
           <div className="header__inner">
 
@@ -73,7 +73,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  className: PropTypes.string.isRequired,
   nameCompany: PropTypes.string.isRequired,
   headerContent: PropTypes.string.isRequired,
 };
