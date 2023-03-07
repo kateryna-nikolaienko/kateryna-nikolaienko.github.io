@@ -11,9 +11,65 @@ import linkedinIcon from '../../assets/icons/socials/linkedin.svg';
 import youtubeIcon from '../../assets/icons/socials/youtube.svg';
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      footerSocials: [
+        {
+          index: 0,
+          href: '/',
+          src: facebookIcon,
+          alt: 'Facebook'
+        },
+        {
+          index: 1,
+          href: '/',
+          src: instagramIcon,
+          alt: 'Instagram'
+        },
+        {
+          index: 2,
+          href: '/',
+          src: twitterIcon,
+          alt: 'Twitter'
+        },
+        {
+          index: 3,
+          href: '/',
+          src: linkedinIcon,
+          alt: 'Linkedin'
+        },
+        {
+          index: 4,
+          href: '/',
+          src: youtubeIcon,
+          alt: 'Youtube'
+        },
+      ]
+    };
+  }
+
+  renderFooterSocials = () => {
+    const { footerSocials } = this.state;
+    return footerSocials.map((item) => {
+      return (
+        <li className="footer__social" key={item.index}>
+          <a className="footer__social-link" href={item.href}>
+            <img src={item.src} alt={item.alt} />
+          </a>
+        </li>
+      );
+    });
+  };
+
   render() {
     const {
-      email, phone, location, footerCompanyContent, footerAboutContent, link
+      email,
+      phone,
+      location,
+      footerCompanyContent,
+      footerAboutContent,
+      link
     } = this.props;
 
     return (
@@ -143,31 +199,7 @@ class Footer extends Component {
               </a>
 
               <ul className="footer__socials">
-                <li className="footer__social">
-                  <a className="footer__social-link" href="/">
-                    <img src={facebookIcon} alt="Facebook" />
-                  </a>
-                </li>
-                <li className="footer__social">
-                  <a className="footer__social-link" href="/">
-                    <img src={instagramIcon} alt="Instagram" />
-                  </a>
-                </li>
-                <li className="footer__social">
-                  <a className="footer__social-link" href="/">
-                    <img src={twitterIcon} alt="Twitter" />
-                  </a>
-                </li>
-                <li className="footer__social">
-                  <a className="footer__social-link" href="/">
-                    <img src={linkedinIcon} alt="Linkedin" />
-                  </a>
-                </li>
-                <li className="footer__social">
-                  <a className="footer__social-link" href="/">
-                    <img src={youtubeIcon} alt="Youtube" />
-                  </a>
-                </li>
+                {this.renderFooterSocials()}
               </ul>
 
               <button className="footer__language" type="button">
