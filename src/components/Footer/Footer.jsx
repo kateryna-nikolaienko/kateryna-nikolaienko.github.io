@@ -9,6 +9,7 @@ import instagramIcon from '../../assets/icons/socials/instagram.svg';
 import twitterIcon from '../../assets/icons/socials/twitter.svg';
 import linkedinIcon from '../../assets/icons/socials/linkedin.svg';
 import youtubeIcon from '../../assets/icons/socials/youtube.svg';
+import FooterItem from './FooterItem';
 
 class Footer extends Component {
   constructor(props) {
@@ -45,6 +46,30 @@ class Footer extends Component {
           src: youtubeIcon,
           alt: 'Youtube'
         },
+      ],
+      informationItems: [
+        <FooterItem href="/" title="New Collection" index={0} />,
+        <FooterItem href="/" title="About Store" index={1} />,
+        <FooterItem href="/" title="Contact Us" index={2} />,
+        <FooterItem href="/" title="Latest News" index={3} />,
+        <FooterItem href="/" title="Our Sitemap" index={4} />,
+        <FooterItem href="/" title="Orders History" index={5} />,
+      ],
+      menuItems: [
+        <FooterItem href="/" title="Instagram profile" index={0} />,
+        <FooterItem href="/" title="New Collection" index={1} />,
+        <FooterItem href="/" title="Contact Us" index={2} />,
+        <FooterItem href="/" title="Latest News" index={3} />,
+        <FooterItem href="/" title="Terms & Conditions" index={4} />,
+        <FooterItem href="/" title="Purchase Theme" index={5} />,
+      ],
+      usefulLinksItems: [
+        <FooterItem href="/" title="New Collection" index={0} />,
+        <FooterItem href="/" title="About Store" index={1} />,
+        <FooterItem href="/" title="Contact Us" index={2} />,
+        <FooterItem href="/" title="Latest News" index={3} />,
+        <FooterItem href="/" title="Our Sitemap" index={4} />,
+        <FooterItem href="/" title="Orders History" index={5} />,
       ]
     };
   }
@@ -62,6 +87,12 @@ class Footer extends Component {
     });
   };
 
+  renderFooterItems = (itemsArray) => {
+    return itemsArray.map((item) => {
+      return <div key={item.props.index}>{item}</div>;
+    });
+  };
+
   render() {
     const {
       email,
@@ -71,6 +102,12 @@ class Footer extends Component {
       footerAboutContent,
       link
     } = this.props;
+
+    const {
+      informationItems,
+      menuItems,
+      usefulLinksItems
+    } = this.state;
 
     return (
       <footer className="footer">
@@ -120,72 +157,21 @@ class Footer extends Component {
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">INFORMATION</h4>
               <ul className="footer__inner-list">
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> New Collection </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> About Store </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Contact Us </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Latest News </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Our Sitemap </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Orders History </a>
-                </li>
+                {this.renderFooterItems(informationItems)}
               </ul>
             </div>
 
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">FOOTER MENU</h4>
               <ul className="footer__inner-list">
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Instagram profile </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> New Collection </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Contact Us </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Latest News </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Terms & Conditions </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Purchase Theme </a>
-                </li>
+                {this.renderFooterItems(menuItems)}
               </ul>
             </div>
 
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">USEFUL LINKS</h4>
               <ul className="footer__inner-list">
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> New Collection </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> About Store </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Contact Us </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Latest News </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Our Sitemap </a>
-                </li>
-                <li className="footer__inner-item">
-                  <a className="footer__inner-link" href="/"> Orders History </a>
-                </li>
+                {this.renderFooterItems(usefulLinksItems)}
               </ul>
             </div>
 
