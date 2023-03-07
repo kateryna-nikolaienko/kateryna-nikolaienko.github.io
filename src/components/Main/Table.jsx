@@ -65,12 +65,13 @@ class Table extends Component {
   };
 
   removeElementFromObject = () => {
-    const { attacks } = this.state;
-    const [object] = attacks;
-    const updatedObject = { ...object };
-    delete updatedObject.description.damage;
-    const updatedAttacks = [updatedObject, ...attacks.slice(1)];
-    this.setState({ attacks: updatedAttacks });
+    this.setState(({ attacks }) => {
+      const [object] = attacks;
+      const updatedObject = { ...object };
+      delete updatedObject.description.damage;
+      const updatedAttacks = [updatedObject, ...attacks.slice(1)];
+      return { attacks: updatedAttacks };
+    });
   };
 
   addElementToObject = () => {
@@ -89,60 +90,63 @@ class Table extends Component {
   };
 
   sortArray = () => {
-    const { attacks, ascending } = this.state;
-    const newAttacks = [...attacks];
-    newAttacks.sort((a, b) => {
-      return ascending ? a.year - b.year : b.year - a.year;
-    });
-    this.setState({ attacks: newAttacks, ascending: !ascending });
+    this.setState(({
+      ascending,
+      attacks
+    }) => ({
+      attacks: [...attacks].sort((a, b) => {
+        return ascending ? a.year - b.year : b.year - a.year;
+      }),
+      ascending: !ascending
+    }));
   };
 
   // sortArray = () => {
-  //   const { attacks } = this.state;
-  //   const newAttacks = [...attacks];
-  //
-  //   for (let i = newAttacks.length - 1; i >= 0; i -= 1) {
-  //     for (let j = 1; j <= i; j += 1) {
-  //       if (newAttacks[j - 1].year < newAttacks[j].year) {
-  //         const buffer = newAttacks[j - 1];
-  //         newAttacks[j - 1] = newAttacks[j];
-  //         newAttacks[j] = buffer;
+  //   this.setState(({ attacks }) => {
+  //     const newAttacks = [...attacks];
+  //     for (let i = newAttacks.length - 1; i >= 0; i -= 1) {
+  //       for (let j = 1; j <= i; j += 1) {
+  //         if (newAttacks[j - 1].year < newAttacks[j].year) {
+  //           const buffer = newAttacks[j - 1];
+  //           newAttacks[j - 1] = newAttacks[j];
+  //           newAttacks[j] = buffer;
+  //         }
   //       }
   //     }
-  //   }
-  //
-  //   this.setState({ attacks: newAttacks });
+  //     return { attacks: newAttacks };
+  //   });
   // };
 
   addNewObject = () => {
-    const { attacks } = this.state;
-    const newObject = {
-      year: 2017,
-      description: {
-        name: 'Petya',
-        damage: 'The program encrypts files on the victim computers hard drive, and also overwrites and encrypts '
-          + 'the master boot record — the data needed to boot the operating system.'
-      }
-    };
-    const newAttacks = [...attacks, newObject];
-    this.setState({ attacks: newAttacks });
+    this.setState(({ attacks }) => {
+      const newObject = {
+        year: 2017,
+        description: {
+          name: 'Petya',
+          damage: 'The program encrypts files on the victim computers hard drive, and also overwrites and encrypts '
+              + 'the master boot record — the data needed to boot the operating system.'
+        }
+      };
+      const newAttacks = [...attacks, newObject];
+      return { attacks: newAttacks };
+    });
   };
 
   removeLastElement = () => {
-    const { attacks } = this.state;
-    const newAttacks = [...attacks];
-    newAttacks.pop();
-    this.setState({ attacks: newAttacks });
+    this.setState(({ attacks }) => {
+      const newAttacks = [...attacks];
+      newAttacks.pop();
+      return { attacks: newAttacks };
+    });
   };
 
   rewriteBySpread = () => {
-    const { attacks } = this.state;
-
-    const [object, ...rest] = attacks;
-    const newObject = { year: '2080' };
-    const sum = { ...object, ...newObject };
-
-    this.setState({ attacks: [sum, ...rest] });
+    this.setState(({ attacks }) => {
+      const [object, ...rest] = attacks;
+      const newObject = { year: '2080' };
+      const sum = { ...object, ...newObject };
+      return { attacks: [sum, ...rest] };
+    });
   };
 
   render() {
@@ -173,4 +177,5 @@ class Table extends Component {
     );
   }
 }
+
 export default Table;
