@@ -48,7 +48,7 @@ class Table extends Component {
         }
       ],
       ascending: true,
-      activeElement: null
+      activeElement: null,
     };
   }
 
@@ -59,7 +59,7 @@ class Table extends Component {
         <tr
           key={item.year}
           onClick={() => this.handleRowClick(item)}
-          className={activeElement === item ? 'activeRow' : ''}
+          className={item === activeElement ? 'activeRow' : ''}
         >
           <td>{item.year}</td>
           <td>{item.description.name}</td>
