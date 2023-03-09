@@ -48,20 +48,30 @@ class Table extends Component {
         }
       ],
       ascending: true,
+      activeElement: null
     };
   }
 
   renderTableContent = () => {
-    const { attacks } = this.state;
+    const { attacks, activeElement } = this.state;
     return attacks.map((item) => {
       return (
-        <tr key={item.year}>
+        <tr
+          key={item.year}
+          onClick={() => this.handleRowClick(item)}
+          className={activeElement === item ? 'activeRow' : ''}
+        >
           <td>{item.year}</td>
           <td>{item.description.name}</td>
           <td>{item.description.damage}</td>
         </tr>
       );
     });
+  };
+
+  handleRowClick = (item) => {
+    const { activeElement } = this.state;
+    this.setState({ activeElement: activeElement === item ? null : item });
   };
 
   removeElementFromObject = () => {

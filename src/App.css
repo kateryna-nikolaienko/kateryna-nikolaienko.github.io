@@ -186,6 +186,12 @@ td, th {
 	background-color: #0b4bc6;
 }
 
+.activeRow {
+	background-color: white;
+	color: black;
+	border: 1px solid #0b4bc6;
+}
+
 .about {
 	padding: 130px 0 170px;
 	background-color: #030A17;
