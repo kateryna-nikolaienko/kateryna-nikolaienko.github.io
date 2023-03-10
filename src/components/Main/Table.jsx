@@ -7,6 +7,7 @@ class Table extends Component {
     this.state = {
       attacks: [
         {
+          index: 0,
           year: 1988,
           description: {
             name: 'Morris Worm',
@@ -15,6 +16,7 @@ class Table extends Component {
           }
         },
         {
+          index: 1,
           year: 2000,
           description: {
             name: 'ILOVEYOU',
@@ -23,6 +25,7 @@ class Table extends Component {
           }
         },
         {
+          index: 2,
           year: 2007,
           description: {
             name: 'Storm Worm',
@@ -31,6 +34,7 @@ class Table extends Component {
           }
         },
         {
+          index: 3,
           year: 2017,
           description: {
             name: 'WannaCry',
@@ -39,6 +43,7 @@ class Table extends Component {
           }
         },
         {
+          index: 4,
           year: 2020,
           description: {
             name: 'SolarWinds',
@@ -49,17 +54,25 @@ class Table extends Component {
       ],
       ascending: true,
       activeElement: null,
+      activeRow: null
     };
+    this.tableRef = React.createRef();
   }
 
   renderTableContent = () => {
-    const { attacks, activeElement } = this.state;
+    const {
+      attacks,
+      activeElement,
+      activeRow
+    } = this.state;
     return attacks.map((item) => {
       return (
         <tr
           key={item.year}
           onClick={() => this.handleRowClick(item)}
-          className={item === activeElement ? 'activeRow' : ''}
+          onKeyDown={this.handleKeyPress}
+          className={(item === activeElement || item === activeRow) ? 'activeRow' : ''}
+          tabIndex={0}
         >
           <td>{item.year}</td>
           <td>{item.description.name}</td>
@@ -72,6 +85,28 @@ class Table extends Component {
   handleRowClick = (item) => {
     const { activeElement } = this.state;
     this.setState({ activeElement: activeElement === item ? null : item });
+  };
+
+  handleKeyPress = (event) => {
+    const { activeElement, attacks } = this.state;
+    const rows = this.tableRef.current.getElementsByTagName('tr');
+    const activeIndex = activeElement ? activeElement.index : -1;
+    event.preventDefault();
+    if (event.key === 'ArrowUp') {
+      if (activeIndex > 0) {
+        this.setState({ activeElement: attacks[activeIndex - 1] });
+      }
+    } else if (event.key === 'ArrowDown') {
+      if (activeIndex < attacks.length - 1) {
+        this.setState({ activeElement: attacks[activeIndex + 1] });
+      }
+    }
+    if (activeElement) {
+      rows[activeIndex + 1].classList.add('activeRow');
+      rows[activeIndex].classList.remove('activeRow');
+    } else {
+      rows[0].classList.add('activeRow');
+    }
   };
 
   removeElementFromObject = () => {
@@ -134,7 +169,7 @@ class Table extends Component {
         description: {
           name: 'Petya',
           damage: 'The program encrypts files on the victim computers hard drive, and also overwrites and encrypts '
-              + 'the master boot record — the data needed to boot the operating system.'
+            + 'the master boot record — the data needed to boot the operating system.'
         }
       };
       const newAttacks = [...attacks, newObject];
@@ -165,7 +200,7 @@ class Table extends Component {
         <div className="table__container container">
           <h1 className="table__title">The most popular cyber attacks</h1>
           <table className="table__inner">
-            <tbody>
+            <tbody ref={this.tableRef}>
               <tr className="table__header">
                 <th>Year</th>
                 <th>Name</th>
