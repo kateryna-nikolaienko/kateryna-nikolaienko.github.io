@@ -157,6 +157,10 @@ td, th {
 	padding: 8px;
 }
 
+.table tr:not(:first-child) {
+	cursor: pointer;
+}
+
 .table__header {
 	padding-top: 12px;
 	padding-bottom: 12px;

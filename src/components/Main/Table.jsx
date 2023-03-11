@@ -54,7 +54,8 @@ class Table extends Component {
       ],
       ascending: true,
       activeElement: null,
-      activeRow: null
+      activeRow: null,
+      currentCard: null,
     };
     this.tableRef = React.createRef();
   }
@@ -65,6 +66,7 @@ class Table extends Component {
       activeElement,
       activeRow
     } = this.state;
+
     return attacks.map((item) => {
       return (
         <tr
@@ -73,6 +75,10 @@ class Table extends Component {
           onKeyDown={this.handleKeyPress}
           className={(item === activeElement || item === activeRow) ? 'activeRow' : ''}
           tabIndex={0}
+          draggable
+          onDragStart={(e) => this.dragStartHandler(e, item)} // взяли карточку
+          onDragOver={(e) => this.dragOverHandler(e)} // если находимся над другим обьектом
+          onDrop={(e) => this.dropHandler(e, item)} // отпустили карточку и должно произойти действие
         >
           <td>{item.year}</td>
           <td>{item.description.name}</td>
@@ -88,7 +94,10 @@ class Table extends Component {
   };
 
   handleKeyPress = (event) => {
-    const { activeElement, attacks } = this.state;
+    const {
+      activeElement,
+      attacks
+    } = this.state;
     const rows = this.tableRef.current.getElementsByTagName('tr');
     const activeIndex = activeElement ? activeElement.index : -1;
     event.preventDefault();
@@ -193,6 +202,33 @@ class Table extends Component {
       return { attacks: [sum, ...rest] };
     });
   };
+
+  dragStartHandler(e, item) {
+    this.setState({ currentCard: item });
+  }
+
+  dragOverHandler(e) {
+    e.preventDefault();
+  }
+
+  dropHandler(e, item) {
+    const { currentCard } = this.state;
+    if (currentCard) {
+      this.setState(({
+        attacks
+      }) => {
+        const droppedOnIndex = attacks.findIndex((el) => el === item);
+        const draggedElement = attacks.findIndex((el) => el.year === currentCard.year);
+
+        if (droppedOnIndex !== -1 && droppedOnIndex !== draggedElement) {
+          const newArray = [...attacks];
+          [newArray[droppedOnIndex], newArray[draggedElement]] = [newArray[draggedElement], newArray[droppedOnIndex]];
+          return { attacks: newArray, currentCard: null };
+        }
+        return { attacks };
+      });
+    }
+  }
 
   render() {
     return (
