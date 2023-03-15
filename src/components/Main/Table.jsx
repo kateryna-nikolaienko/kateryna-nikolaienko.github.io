@@ -195,8 +195,7 @@ class Table extends Component {
   };
 
   rewriteBySpread = () => {
-    this.setState(({ attacks }) => {
-      const [object, ...rest] = attacks;
+    this.setState(({ attacks: [object, ...rest] }) => {
       const newObject = { year: '2080' };
       const sum = { ...object, ...newObject };
       return { attacks: [sum, ...rest] };
