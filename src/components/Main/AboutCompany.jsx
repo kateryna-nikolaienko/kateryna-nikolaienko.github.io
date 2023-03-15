@@ -10,8 +10,6 @@ class AboutCompany extends Component {
     this.state = {
       loaded: false,
     };
-    this.handleImageLoaded = this.handleImageLoaded.bind(this);
-    this.handleImageError = this.handleImageError.bind(this);
   }
 
   handleImageLoaded = () => {
