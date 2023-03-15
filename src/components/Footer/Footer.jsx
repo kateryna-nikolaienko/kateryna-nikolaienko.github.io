@@ -48,28 +48,100 @@ class Footer extends Component {
         },
       ],
       informationItems: [
-        <FooterItem href="/" title="New Collection" index={0} />,
-        <FooterItem href="/" title="About Store" index={1} />,
-        <FooterItem href="/" title="Contact Us" index={2} />,
-        <FooterItem href="/" title="Latest News" index={3} />,
-        <FooterItem href="/" title="Our Sitemap" index={4} />,
-        <FooterItem href="/" title="Orders History" index={5} />,
+        {
+          index: 0,
+          href: '/',
+          title: 'New Collection',
+        },
+        {
+          index: 1,
+          href: '/',
+          title: 'About Store',
+        },
+        {
+          index: 2,
+          href: '/',
+          title: 'Contact Us',
+        },
+        {
+          index: 3,
+          href: '/',
+          title: 'Latest News',
+        },
+        {
+          index: 4,
+          href: '/',
+          title: 'Our Sitemap',
+        },
+        {
+          index: 5,
+          href: '/',
+          title: 'Orders History',
+        },
       ],
       menuItems: [
-        <FooterItem href="/" title="Instagram profile" index={0} />,
-        <FooterItem href="/" title="New Collection" index={1} />,
-        <FooterItem href="/" title="Contact Us" index={2} />,
-        <FooterItem href="/" title="Latest News" index={3} />,
-        <FooterItem href="/" title="Terms & Conditions" index={4} />,
-        <FooterItem href="/" title="Purchase Theme" index={5} />,
+        {
+          index: 0,
+          href: '/',
+          title: 'Instagram profile',
+        },
+        {
+          index: 1,
+          href: '/',
+          title: 'New Collection',
+        },
+        {
+          index: 2,
+          href: '/',
+          title: 'Contact Us',
+        },
+        {
+          index: 3,
+          href: '/',
+          title: 'Latest News',
+        },
+        {
+          index: 4,
+          href: '/',
+          title: 'Terms & Conditions',
+        },
+        {
+          index: 5,
+          href: '/',
+          title: 'Purchase Theme',
+        },
       ],
       usefulLinksItems: [
-        <FooterItem href="/" title="New Collection" index={0} />,
-        <FooterItem href="/" title="About Store" index={1} />,
-        <FooterItem href="/" title="Contact Us" index={2} />,
-        <FooterItem href="/" title="Latest News" index={3} />,
-        <FooterItem href="/" title="Our Sitemap" index={4} />,
-        <FooterItem href="/" title="Orders History" index={5} />,
+        {
+          index: 0,
+          href: '/',
+          title: 'New Collection',
+        },
+        {
+          index: 1,
+          href: '/',
+          title: 'About Store',
+        },
+        {
+          index: 2,
+          href: '/',
+          title: 'Contact Us',
+        },
+        {
+          index: 3,
+          href: '/',
+          title: 'Latest News',
+        },
+        {
+          index: 4,
+          href: '/',
+          title: 'Our Sitemap',
+        },
+        {
+          index: 5,
+          href: '/',
+          title: 'Orders History',
+        },
       ]
     };
   }
