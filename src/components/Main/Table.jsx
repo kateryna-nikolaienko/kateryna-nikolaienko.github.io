@@ -76,9 +76,9 @@ class Table extends Component {
           className={(item === activeElement || item === activeRow) ? 'activeRow' : ''}
           tabIndex={0}
           draggable
-          onDragStart={(e) => this.dragStartHandler(e, item)} // взяли карточку
-          onDragOver={(e) => this.dragOverHandler(e)} // если находимся над другим обьектом
-          onDrop={(e) => this.dropHandler(e, item)} // отпустили карточку и должно произойти действие
+          onDragStart={(e) => this.dragStartHandler(e, item)}
+          onDragOver={(e) => this.dragOverHandler(e)}
+          onDrop={(e) => this.dropHandler(e, item)}
         >
           <td>{item.year}</td>
           <td>{item.description.name}</td>
@@ -89,8 +89,7 @@ class Table extends Component {
   };
 
   handleRowClick = (item) => {
-    const { activeElement } = this.state;
-    this.setState({ activeElement: activeElement === item ? null : item });
+    this.setState(({activeElement}) => ({ activeElement: activeElement === item ? null : item }));
   };
 
   handleKeyPress = (event) => {
