@@ -54,7 +54,6 @@ class Table extends Component {
       ],
       ascending: true,
       activeElement: null,
-      activeRow: null,
       currentCard: null,
     };
     this.tableRef = React.createRef();
@@ -63,8 +62,7 @@ class Table extends Component {
   renderTableContent = () => {
     const {
       attacks,
-      activeElement,
-      activeRow
+      activeElement
     } = this.state;
 
     return attacks.map((item) => {
@@ -73,7 +71,7 @@ class Table extends Component {
           key={item.year}
           onClick={() => this.handleRowClick(item)}
           onKeyDown={this.handleKeyPress}
-          className={(item === activeElement || item === activeRow) ? 'activeRow' : ''}
+          className={(item === activeElement) ? 'activeRow' : ''}
           tabIndex={0}
           draggable
           onDragStart={(e) => this.dragStartHandler(e, item)}
@@ -97,7 +95,6 @@ class Table extends Component {
       activeElement,
       attacks
     } = this.state;
-    const rows = this.tableRef.current.getElementsByTagName('tr');
     const activeIndex = activeElement ? activeElement.index : -1;
     event.preventDefault();
     if (event.key === 'ArrowUp') {
@@ -108,12 +105,6 @@ class Table extends Component {
       if (activeIndex < attacks.length - 1) {
         this.setState({ activeElement: attacks[activeIndex + 1] });
       }
-    }
-    if (activeElement) {
-      rows[activeIndex + 1].classList.add('activeRow');
-      rows[activeIndex].classList.remove('activeRow');
-    } else {
-      rows[0].classList.add('activeRow');
     }
   };
 
