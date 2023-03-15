@@ -6,27 +6,43 @@ class Navigation extends Component {
     super(props);
     this.state = {
       navigationItems: [
-        <NavigationItem index={0} href="/" title="Home" />,
-        <NavigationItem index={1} href="/" title="About" />,
-        <NavigationItem index={2} href="/" title="Services" />,
-        <NavigationItem index={3} href="/" title="Blog" />,
-        <NavigationItem index={4} href="/" title="Contact" />,
+        {
+          index: 0,
+          href: '/',
+          title: 'Home'
+        },
+        {
+          index: 1,
+          href: '/',
+          title: 'About'
+        },
+        {
+          index: 2,
+          href: '/',
+          title: 'Services'
+        },
+        {
+          index: 3,
+          href: '/',
+          title: 'Blog'
+        },
+        {
+          index: 4,
+          href: '/',
+          title: 'Contact'
+        },
       ]
     };
   }
 
-  renderNavigationItems = () => {
-    const { navigationItems } = this.state;
-    return navigationItems.map((item) => {
-      return <div key={item.props.index}>{item}</div>;
-    });
-  };
-
   render() {
+    const { navigationItems } = this.state;
     return (
       <nav className="menu">
         <ul className="menu__list menu__list-left">
-          {this.renderNavigationItems()}
+          {navigationItems.map(({ index, href, title }) => (
+            <NavigationItem key={index} href={href} title={title} />
+          ))}
         </ul>
       </nav>
     );

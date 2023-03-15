@@ -89,7 +89,7 @@ class Table extends Component {
   };
 
   handleRowClick = (item) => {
-    this.setState(({activeElement}) => ({ activeElement: activeElement === item ? null : item }));
+    this.setState(({ activeElement }) => ({ activeElement: activeElement === item ? null : item }));
   };
 
   handleKeyPress = (event) => {
