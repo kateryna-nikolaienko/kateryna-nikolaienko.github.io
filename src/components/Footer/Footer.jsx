@@ -10,6 +10,7 @@ import twitterIcon from '../../assets/icons/socials/twitter.svg';
 import linkedinIcon from '../../assets/icons/socials/linkedin.svg';
 import youtubeIcon from '../../assets/icons/socials/youtube.svg';
 import FooterItem from './FooterItem';
+import FooterSocialsItem from './FooterSocialsItem';
 
 class Footer extends Component {
   constructor(props) {
@@ -146,19 +147,6 @@ class Footer extends Component {
     };
   }
 
-  renderFooterSocials = () => {
-    const { footerSocials } = this.state;
-    return footerSocials.map((item) => {
-      return (
-        <li className="footer__social" key={item.index}>
-          <a className="footer__social-link" href={item.href}>
-            <img src={item.src} alt={item.alt} />
-          </a>
-        </li>
-      );
-    });
-  };
-
   render() {
     const {
       email,
@@ -170,6 +158,7 @@ class Footer extends Component {
     } = this.props;
 
     const {
+      footerSocials,
       informationItems,
       menuItems,
       usefulLinksItems
@@ -257,7 +246,11 @@ class Footer extends Component {
               </a>
 
               <ul className="footer__socials">
-                {this.renderFooterSocials()}
+                {footerSocials.map(({
+                  index, href, src, alt 
+                }) => (
+                  <FooterSocialsItem key={index} href={href} src={src} alt={alt} />
+                ))}
               </ul>
 
               <button className="footer__language" type="button">
