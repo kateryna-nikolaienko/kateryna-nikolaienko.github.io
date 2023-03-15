@@ -159,12 +159,6 @@ class Footer extends Component {
     });
   };
 
-  renderFooterItems = (itemsArray) => {
-    return itemsArray.map((item) => {
-      return <div key={item.props.index}>{item}</div>;
-    });
-  };
-
   render() {
     const {
       email,
@@ -229,21 +223,27 @@ class Footer extends Component {
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">INFORMATION</h4>
               <ul className="footer__inner-list">
-                {this.renderFooterItems(informationItems)}
+                {informationItems.map(({ index, href, title }) => (
+                  <FooterItem key={index} href={href} title={title} />
+                ))}
               </ul>
             </div>
 
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">FOOTER MENU</h4>
               <ul className="footer__inner-list">
-                {this.renderFooterItems(menuItems)}
+                {menuItems.map(({ index, href, title }) => (
+                  <FooterItem key={index} href={href} title={title} />
+                ))}
               </ul>
             </div>
 
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">USEFUL LINKS</h4>
               <ul className="footer__inner-list">
-                {this.renderFooterItems(usefulLinksItems)}
+                {usefulLinksItems.map(({ index, href, title }) => (
+                  <FooterItem key={index} href={href} title={title} />
+                ))}
               </ul>
             </div>
 
