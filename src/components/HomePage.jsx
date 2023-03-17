@@ -9,6 +9,7 @@ import InnerSlider from './Main/Slider/InnerSlider';
 import Solutions from './Main/Solutions';
 import Footer from './Footer/Footer';
 import Introduce from './Introduce/Introduce';
+import Team from './Main/Team';
 
 class HomePage extends Component {
   render() {
@@ -36,6 +37,8 @@ class HomePage extends Component {
           <main className="page">
 
             <Table />
+
+            <Team />
 
             <AboutCompany aboutContent={aboutContent} />
 

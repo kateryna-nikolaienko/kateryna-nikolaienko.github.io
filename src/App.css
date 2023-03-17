@@ -196,6 +196,52 @@ td, th {
 	border: 1px solid #0b4bc6;
 }
 
+.team {
+	padding: 130px 0;
+	background-color: #030A17;
+}
+
+.team__title {
+	text-align: center;
+}
+
+.team__list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 30px;
+	list-style: none;
+	border: 5px dotted #3A68B8;
+	border-radius: 10px;
+	padding: 30px 20px;
+}
+
+.team__list-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px;
+	margin-bottom: 40px;
+}
+
+.team__list-name {
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.team__list-email {
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.team__list-img img {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
 .about {
 	padding: 130px 0 170px;
 	background-color: #030A17;
@@ -216,7 +262,8 @@ td, th {
 }
 
 .about__inner-title,
-.table__title {
+.table__title,
+.team__title {
 	font-weight: 700;
 	font-size: 40px;
 	line-height: 52px;
@@ -296,10 +343,6 @@ td, th {
 	width: 15px;
 	height: 15px;
 	cursor: pointer;
-}
-
-.slick-dots li button:before {
-	font-size: 0;
 }
 
 .slick-dots button {
