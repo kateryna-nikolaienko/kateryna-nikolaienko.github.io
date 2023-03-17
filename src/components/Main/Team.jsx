@@ -9,10 +9,20 @@ class Team extends Component {
   }
 
   componentDidMount() {
-    fetch('https://reqres.in/api/users?page=2')
-      .then((response) => response.json())
-      .then((data) => this.setState({ team: data.data }));
+    this.getData()
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
+
+  getData = async () => {
+    const response = await fetch('https://reqres.in/api/users?page=2');
+    const data = await response.json();
+    this.setState({ team: data.data });
+  };
 
   render() {
     const { team } = this.state;
