@@ -580,13 +580,15 @@ td, th {
     }
 
     .header__content-text,
-    .about__inner-text {
+    .about__inner-text,
+    .table__inner {
         margin-bottom: 40px;
     }
 
     .header__btn,
     .menu__button,
-    .about__inner-button {
+    .about__inner-button,
+    .table__btn {
         font-size: 16px;
         padding: 13px 24px;
     }
@@ -609,7 +611,8 @@ td, th {
 
     .about__inner-title,
     .solutions__inner-title,
-    .team__title {
+    .team__title,
+    .table__title {
         font-size: 32px;
         line-height: 42px;
         margin-bottom: 20px;
@@ -678,7 +681,8 @@ td, th {
     .header__content-text,
     .about__inner-text,
     .slider__text,
-    .solutions__inner-text {
+    .solutions__inner-text,
+    .table__inner {
         font-size: 14px;
         line-height: 23px;
     }
@@ -694,7 +698,8 @@ td, th {
 
     .about__inner-title,
     .solutions__inner-title,
-    .team__title {
+    .team__title,
+    .table__title {
         font-size: 27px;
         line-height: 32px;
     }
@@ -740,7 +745,8 @@ td, th {
 @media (max-width: 768px) {
 
     .header__btn,
-    .menu__button {
+    .menu__button,
+    .table__btn {
         font-size: 13px;
         padding: 10px 20px;
     }
@@ -796,14 +802,16 @@ td, th {
 
     .about__inner-title,
     .solutions__inner-title,
-    .team__title {
+    .team__title,
+    .table__title {
         font-size: 23px;
         line-height: 27px;
     }
 
     .about__inner-text,
     .slider__text,
-    .solutions__inner-text {
+    .solutions__inner-text,
+    .table__inner {
         font-size: 12px;
         line-height: 20px;
     }
@@ -865,7 +873,8 @@ td, th {
 
     .header__btn,
     .menu__button,
-    .about__inner-button {
+    .about__inner-button,
+    .table__btn {
         font-size: 10px;
         padding: 6px 17px;
     }
@@ -881,7 +890,8 @@ td, th {
 
     .header__content-text,
     .about__inner-text,
-    .solutions__inner-text {
+    .solutions__inner-text,
+    .table__inner {
         font-size: 12px;
         line-height: 19px;
     }
@@ -895,7 +905,8 @@ td, th {
 
     .about__inner-title,
     .solutions__inner-title,
-    .team__title {
+    .team__title,
+    .table__title {
         font-size: 21px;
         line-height: 23px;
     }
