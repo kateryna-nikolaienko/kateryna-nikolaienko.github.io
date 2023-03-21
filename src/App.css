@@ -458,6 +458,10 @@ td, th {
     padding-top: 23px;
 }
 
+.footer__inner-list {
+    padding: 0;
+}
+
 .footer__inner-link {
     margin-bottom: 20px;
     opacity: 0.6;
@@ -474,6 +478,7 @@ td, th {
 
 .footer__socials {
     display: flex;
+    padding: 0;
     margin-bottom: 45px;
 }
 

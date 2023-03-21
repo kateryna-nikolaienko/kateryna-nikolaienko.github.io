@@ -8,7 +8,7 @@ class AboutCompany extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loaded: true,
+      isImageLoaded: true,
     };
   }
 
@@ -17,20 +17,20 @@ class AboutCompany extends Component {
   };
 
   handleImageError = () => {
-    this.setState({ loaded: false });
+    this.setState({ isImageLoaded: false });
     console.log('Error image');
   };
 
   render() {
     const { aboutContent } = this.props;
-    const { loaded } = this.state;
+    const { isImageLoaded } = this.state;
     return (
       <section className="about">
         <div className="about__container container">
           <div className="about__inner">
             <div className="about__inner-img">
               <img
-                src={loaded ? aboutCompany : errorImage}
+                src={isImageLoaded ? aboutCompany : errorImage}
                 alt="About company"
                 onLoad={this.handleImageLoaded}
                 onError={this.handleImageError}
