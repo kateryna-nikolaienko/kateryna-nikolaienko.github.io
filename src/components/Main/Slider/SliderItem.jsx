@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 class SliderItem extends Component {
   render() {
     const {
-      index, src, text, title 
+      src, text, title
     } = this.props;
     return (
-      <div className="slider__box slick-list" key={index}>
+      <div className="slider__box slick-list">
         <div className="slider__item">
           <div className="slider__picture">
             <img src={src} alt="" />
@@ -25,7 +25,6 @@ class SliderItem extends Component {
 }
 
 SliderItem.propTypes = {
-  index: PropTypes.number.isRequired,
   src: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
