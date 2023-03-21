@@ -8,16 +8,16 @@ class AboutCompany extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false,
+      loaded: true,
     };
   }
 
   handleImageLoaded = () => {
-    this.setState({ loaded: true });
     console.log('Loaded');
   };
 
   handleImageError = () => {
+    this.setState({ loaded: false });
     console.log('Error image');
   };
 
