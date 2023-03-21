@@ -10,25 +10,37 @@ class Partners extends Component {
     super(props);
     this.state = {
       partnerItems: [
-        <PartnersItem index={0} src={partnerPicture1} alt="partner" />,
-        <PartnersItem index={1} src={partnerPicture2} alt="partner" />,
-        <PartnersItem index={2} src={partnerPicture3} alt="partner" />,
-        <PartnersItem index={3} src={partnerPicture4} alt="partner" />,
+        {
+          index: 0,
+          src: partnerPicture1,
+          alt: 'partner'
+        },
+        {
+          index: 1,
+          src: partnerPicture2,
+          alt: 'partner'
+        },
+        {
+          index: 2,
+          src: partnerPicture3,
+          alt: 'partner'
+        },
+        {
+          index: 3,
+          src: partnerPicture4,
+          alt: 'partner'
+        },
       ]
     };
   }
 
-  renderPartnerItems = () => {
-    const { partnerItems } = this.state;
-    return partnerItems.map((item) => {
-      return <div key={item.props.index}>{item}</div>;
-    });
-  };
-
   render() {
+    const { partnerItems } = this.state;
     return (
       <ul className="header__bottom">
-        {this.renderPartnerItems()}
+        {partnerItems.map(({ index, src, alt }) => (
+          <PartnersItem key={index} src={src} alt={alt} />
+        ))}
       </ul>
     );
   }
