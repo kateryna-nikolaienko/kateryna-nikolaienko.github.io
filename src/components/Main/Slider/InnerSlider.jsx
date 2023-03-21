@@ -12,41 +12,48 @@ class InnerSlider extends Component {
     super(props);
     this.state = {
       sliderItems: [
-        <SliderItem
-          index={0}
-          src={sliderPicture1}
-          title="Naxly as the Winners in Global Agency Awards"
-          text="Lorem ipsum is placeholder text commonly used in print, and publishing industries for
-          previewing layouts and visual mockups."
-        />,
-        <SliderItem
-          index={1}
-          src={sliderPicture2}
-          title="Naxly as the Winners in Global Agency Awards"
-          text="Lorem ipsum is placeholder text commonly used in print, and publishing industries for
-          previewing layouts and visual mockups."
-        />,
-        <SliderItem
-          index={2}
-          src={sliderPicture3}
-          title="Naxly as the Winners in Global Agency Awards"
-          text="Lorem ipsum is placeholder text commonly used in print, and publishing industries for
-          previewing layouts and visual mockups."
-        />,
-        <SliderItem
-          index={3}
-          src={sliderPicture4}
-          title="Naxly as the Winners in Global Agency Awards"
-          text="Lorem ipsum is placeholder text commonly used in print, and publishing industries for
-          previewing layouts and visual mockups."
-        />,
-        <SliderItem
-          index={4}
-          src={sliderPicture5}
-          title="Naxly as the Winners in Global Agency Awards"
-          text="Lorem ipsum is placeholder text commonly used in print, and publishing industries for
-          previewing layouts and visual mockups."
-        />
+        {
+          index: 0,
+          src: sliderPicture1,
+          title: 'Naxly as the Winners in Global Agency Awards',
+          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+            + 'layouts and visual mockups.'
+        },
+        {
+          index: 1,
+          src: sliderPicture2,
+          title: 'Naxly as the Winners in Global Agency Awards',
+          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+            + 'layouts and visual mockups.'
+        },
+        {
+          index: 2,
+          src: sliderPicture3,
+          title: 'Naxly as the Winners in Global Agency Awards',
+          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+            + 'layouts and visual mockups.'
+        },
+        {
+          index: 3,
+          src: sliderPicture4,
+          title: 'Naxly as the Winners in Global Agency Awards',
+          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+            + 'layouts and visual mockups.'
+        },
+        {
+          index: 4,
+          src: sliderPicture5,
+          title: 'Naxly as the Winners in Global Agency Awards',
+          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+            + 'layouts and visual mockups.'
+        },
+        {
+          index: 4,
+          src: sliderPicture3,
+          title: 'Naxly as the Winners in Global Agency Awards',
+          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+            + 'layouts and visual mockups.'
+        },
       ]
     };
     this.sliderRef = React.createRef(); // create a reference to an object
@@ -71,14 +78,8 @@ class InnerSlider extends Component {
     clearInterval(this.interval);
   }
 
-  renderSliderItems = () => {
-    const { sliderItems } = this.state;
-    return sliderItems.map((item) => {
-      return <div key={item.props.index}>{item}</div>;
-    });
-  };
-
   render() {
+    const { sliderItems } = this.state;
     const settings = {
       dots: true,
       infinite: true,
@@ -116,7 +117,11 @@ class InnerSlider extends Component {
         slidesToScroll={settings.slidesToScroll}
         responsive={settings.responsive}
       >
-        {this.renderSliderItems()}
+        {sliderItems.map(({
+          index, src, text, title 
+        }) => (
+          <SliderItem key={index} src={src} text={text} title={title} />
+        ))}
 
       </Slider>
     );
