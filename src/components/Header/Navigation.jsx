@@ -7,27 +7,27 @@ class Navigation extends Component {
     this.state = {
       navigationItems: [
         {
-          index: 0,
+          id: 0,
           href: '/',
           title: 'Home'
         },
         {
-          index: 1,
+          id: 1,
           href: '/',
           title: 'About'
         },
         {
-          index: 2,
+          id: 2,
           href: '/',
           title: 'Services'
         },
         {
-          index: 3,
+          id: 3,
           href: '/',
           title: 'Blog'
         },
         {
-          index: 4,
+          id: 4,
           href: '/',
           title: 'Contact'
         },
@@ -40,8 +40,8 @@ class Navigation extends Component {
     return (
       <nav className="menu">
         <ul className="menu__list menu__list-left">
-          {navigationItems.map(({ index, href, title }) => (
-            <NavigationItem key={index} href={href} title={title} />
+          {navigationItems.map(({ id, href, title }) => (
+            <NavigationItem key={id} href={href} title={title} />
           ))}
         </ul>
       </nav>

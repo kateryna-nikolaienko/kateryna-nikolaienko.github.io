@@ -7,7 +7,7 @@ class Table extends Component {
     this.state = {
       attacks: [
         {
-          index: 0,
+          id: 0,
           year: 1988,
           description: {
             name: 'Morris Worm',
@@ -16,7 +16,7 @@ class Table extends Component {
           }
         },
         {
-          index: 1,
+          id: 1,
           year: 2000,
           description: {
             name: 'ILOVEYOU',
@@ -25,7 +25,7 @@ class Table extends Component {
           }
         },
         {
-          index: 2,
+          id: 2,
           year: 2007,
           description: {
             name: 'Storm Worm',
@@ -34,7 +34,7 @@ class Table extends Component {
           }
         },
         {
-          index: 3,
+          id: 3,
           year: 2017,
           description: {
             name: 'WannaCry',
@@ -43,7 +43,7 @@ class Table extends Component {
           }
         },
         {
-          index: 4,
+          id: 4,
           year: 2020,
           description: {
             name: 'SolarWinds',

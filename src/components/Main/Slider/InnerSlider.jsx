@@ -13,42 +13,42 @@ class InnerSlider extends Component {
     this.state = {
       sliderItems: [
         {
-          index: 0,
+          id: 0,
           src: sliderPicture1,
           title: 'Naxly as the Winners in Global Agency Awards',
           text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
             + 'layouts and visual mockups.'
         },
         {
-          index: 1,
+          id: 1,
           src: sliderPicture2,
           title: 'Naxly as the Winners in Global Agency Awards',
           text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
             + 'layouts and visual mockups.'
         },
         {
-          index: 2,
+          id: 2,
           src: sliderPicture3,
           title: 'Naxly as the Winners in Global Agency Awards',
           text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
             + 'layouts and visual mockups.'
         },
         {
-          index: 3,
+          id: 3,
           src: sliderPicture4,
           title: 'Naxly as the Winners in Global Agency Awards',
           text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
             + 'layouts and visual mockups.'
         },
         {
-          index: 4,
+          id: 4,
           src: sliderPicture5,
           title: 'Naxly as the Winners in Global Agency Awards',
           text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
             + 'layouts and visual mockups.'
         },
         {
-          index: 4,
+          id: 4,
           src: sliderPicture3,
           title: 'Naxly as the Winners in Global Agency Awards',
           text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
@@ -118,9 +118,9 @@ class InnerSlider extends Component {
         responsive={settings.responsive}
       >
         {sliderItems.map(({
-          index, src, text, title 
+          id, src, text, title
         }) => (
-          <SliderItem key={index} src={src} text={text} title={title} />
+          <SliderItem key={id} src={src} text={text} title={title} />
         ))}
 
       </Slider>

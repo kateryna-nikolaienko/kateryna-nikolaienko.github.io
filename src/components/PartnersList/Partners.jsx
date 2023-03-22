@@ -11,22 +11,22 @@ class Partners extends Component {
     this.state = {
       partnerItems: [
         {
-          index: 0,
+          id: 0,
           src: partnerPicture1,
           alt: 'partner'
         },
         {
-          index: 1,
+          id: 1,
           src: partnerPicture2,
           alt: 'partner'
         },
         {
-          index: 2,
+          id: 2,
           src: partnerPicture3,
           alt: 'partner'
         },
         {
-          index: 3,
+          id: 3,
           src: partnerPicture4,
           alt: 'partner'
         },
@@ -38,8 +38,8 @@ class Partners extends Component {
     const { partnerItems } = this.state;
     return (
       <ul className="header__bottom">
-        {partnerItems.map(({ index, src, alt }) => (
-          <PartnersItem key={index} src={src} alt={alt} />
+        {partnerItems.map(({ id, src, alt }) => (
+          <PartnersItem key={id} src={src} alt={alt} />
         ))}
       </ul>
     );

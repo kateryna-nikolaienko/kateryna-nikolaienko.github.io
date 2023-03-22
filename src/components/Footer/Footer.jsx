@@ -18,31 +18,31 @@ class Footer extends Component {
     this.state = {
       footerSocials: [
         {
-          index: 0,
+          id: 0,
           href: '/',
           src: facebookIcon,
           alt: 'Facebook'
         },
         {
-          index: 1,
+          id: 1,
           href: '/',
           src: instagramIcon,
           alt: 'Instagram'
         },
         {
-          index: 2,
+          id: 2,
           href: '/',
           src: twitterIcon,
           alt: 'Twitter'
         },
         {
-          index: 3,
+          id: 3,
           href: '/',
           src: linkedinIcon,
           alt: 'Linkedin'
         },
         {
-          index: 4,
+          id: 4,
           href: '/',
           src: youtubeIcon,
           alt: 'Youtube'
@@ -50,96 +50,96 @@ class Footer extends Component {
       ],
       informationItems: [
         {
-          index: 0,
+          id: 0,
           href: '/',
           title: 'New Collection',
         },
         {
-          index: 1,
+          id: 1,
           href: '/',
           title: 'About Store',
         },
         {
-          index: 2,
+          id: 2,
           href: '/',
           title: 'Contact Us',
         },
         {
-          index: 3,
+          id: 3,
           href: '/',
           title: 'Latest News',
         },
         {
-          index: 4,
+          id: 4,
           href: '/',
           title: 'Our Sitemap',
         },
         {
-          index: 5,
+          id: 5,
           href: '/',
           title: 'Orders History',
         },
       ],
       menuItems: [
         {
-          index: 0,
+          id: 0,
           href: '/',
           title: 'Instagram profile',
         },
         {
-          index: 1,
+          id: 1,
           href: '/',
           title: 'New Collection',
         },
         {
-          index: 2,
+          id: 2,
           href: '/',
           title: 'Contact Us',
         },
         {
-          index: 3,
+          id: 3,
           href: '/',
           title: 'Latest News',
         },
         {
-          index: 4,
+          id: 4,
           href: '/',
           title: 'Terms & Conditions',
         },
         {
-          index: 5,
+          id: 5,
           href: '/',
           title: 'Purchase Theme',
         },
       ],
       usefulLinksItems: [
         {
-          index: 0,
+          id: 0,
           href: '/',
           title: 'New Collection',
         },
         {
-          index: 1,
+          id: 1,
           href: '/',
           title: 'About Store',
         },
         {
-          index: 2,
+          id: 2,
           href: '/',
           title: 'Contact Us',
         },
         {
-          index: 3,
+          id: 3,
           href: '/',
           title: 'Latest News',
         },
         {
-          index: 4,
+          id: 4,
           href: '/',
           title: 'Our Sitemap',
         },
         {
-          index: 5,
+          id: 5,
           href: '/',
           title: 'Orders History',
         },
@@ -212,8 +212,8 @@ class Footer extends Component {
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">INFORMATION</h4>
               <ul className="footer__inner-list">
-                {informationItems.map(({ index, href, title }) => (
-                  <FooterItem key={index} href={href} title={title} />
+                {informationItems.map(({ id, href, title }) => (
+                  <FooterItem key={id} href={href} title={title} />
                 ))}
               </ul>
             </div>
@@ -221,8 +221,8 @@ class Footer extends Component {
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">FOOTER MENU</h4>
               <ul className="footer__inner-list">
-                {menuItems.map(({ index, href, title }) => (
-                  <FooterItem key={index} href={href} title={title} />
+                {menuItems.map(({ id, href, title }) => (
+                  <FooterItem key={id} href={href} title={title} />
                 ))}
               </ul>
             </div>
@@ -230,8 +230,8 @@ class Footer extends Component {
             <div className="footer__inner-box">
               <h4 className="footer__inner-title">USEFUL LINKS</h4>
               <ul className="footer__inner-list">
-                {usefulLinksItems.map(({ index, href, title }) => (
-                  <FooterItem key={index} href={href} title={title} />
+                {usefulLinksItems.map(({ id, href, title }) => (
+                  <FooterItem key={id} href={href} title={title} />
                 ))}
               </ul>
             </div>
@@ -247,9 +247,9 @@ class Footer extends Component {
 
               <ul className="footer__socials">
                 {footerSocials.map(({
-                  index, href, src, alt 
+                  id, href, src, alt
                 }) => (
-                  <FooterSocialsItem key={index} href={href} src={src} alt={alt} />
+                  <FooterSocialsItem key={id} href={href} src={src} alt={alt} />
                 ))}
               </ul>
 
