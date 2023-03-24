@@ -9,12 +9,14 @@ import Button from '../Buttons/Button';
 import Partners from '../PartnersList/Partners';
 import BurgerButton from '../Buttons/BurgerButton';
 import Modal from '../Modal';
+import ModalVideo from '../ModalVideo';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShowModal: false
+      isShowModal: false,
+      isShowVideo: false,
     };
   }
 
@@ -26,12 +28,20 @@ class Header extends Component {
     this.setState({ isShowModal: false });
   };
 
+  handleShowVideo = () => {
+    this.setState({ isShowVideo: true });
+  };
+
+  handleCloseVideo = () => {
+    this.setState({ isShowVideo: false });
+  };
+
   render() {
     const {
       nameCompany, headerContent
     } = this.props;
 
-    const { isShowModal } = this.state;
+    const { isShowModal, isShowVideo } = this.state;
     return (
       <header className="header">
         <div className="container">
@@ -65,14 +75,13 @@ class Header extends Component {
                 </p>
                 <div className="header__content-buttons">
                   <Button className="header__btn" text="Get Started" onClick={this.handleShowModal} />
-                  <a className="header__btn header__btn-box" href="/">
-                    <img
-                      className="header__btn-img"
-                      src={playIcon}
-                      alt=""
-                    />
-                    Watch Video
-                  </a>
+                  <Button
+                    className="header__btn header__btn-box"
+                    decor={playIcon}
+                    text="Watch Video"
+                    onClick={this.handleShowVideo}
+                  />
+                  {isShowVideo && <ModalVideo onClose={this.handleCloseVideo} /> }
                 </div>
               </div>
               <div className="header__content-right">

@@ -143,7 +143,8 @@
     flex: 1 1 auto;
 }
 
-.modal {
+.modal,
+.modal-video {
     display: block;
     position: fixed;
     z-index: 100;
@@ -155,7 +156,8 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal__body {
+.modal__body,
+.modal-video__body {
     min-height: 100%;
     display: flex;
     align-items: center;
@@ -222,6 +224,15 @@
     outline: none;
 }
 
+.modal-video {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-video__body {
+    padding: 50px;
+}
+
 .table {
     padding: 50px 0;
 }
@@ -277,7 +288,7 @@ td, th {
 }
 
 .team {
-    padding: 130px 0;
+    padding: 60px 0;
     background-color: #030A17;
 }
 
@@ -322,7 +333,7 @@ td, th {
 }
 
 .about {
-    padding: 130px 0 170px;
+    padding: 100px 0 170px;
     background-color: #030A17;
 }
 
@@ -635,7 +646,7 @@ td, th {
     .about,
     .solutions,
     .team {
-        padding: 100px 0 120px;
+        padding: 50px 0;
     }
 
     .footer {
