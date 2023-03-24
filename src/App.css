@@ -721,6 +721,11 @@ td, th {
     .team__list-name {
         font-size: 22px;
     }
+
+    .modal-video__box iframe {
+        width: 753px;
+        height: 380px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -835,6 +840,10 @@ td, th {
         height: 130px;
     }
 
+    .modal-video__box iframe {
+        width: 653px;
+        height: 320px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -864,6 +873,11 @@ td, th {
     .team__list {
         border: none;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-video__box iframe {
+        width: 510px;
+        height: 280px;
     }
 }
 
@@ -950,6 +964,11 @@ td, th {
         border-radius: 10px;
         display: block;
         margin: 0 auto;
+    }
+
+    .modal-video__box iframe {
+        width: 380px;
+        height: 250px;
     }
 }
 
@@ -1045,6 +1064,15 @@ td, th {
         font-size: 21px;
         line-height: 23px;
     }
+
+    .modal-video__body {
+        padding: 10px;
+    }
+
+    .modal-video__box iframe {
+        width: 370px;
+        height: 240px;
+    }
 }
 
 @media (max-width: 415px) {
@@ -1073,6 +1101,11 @@ td, th {
     .team__list-img img {
         width: 90px;
         height: 90px;
+    }
+
+    .modal-video__box iframe {
+        width: 260px;
+        height: 200px;
     }
 
 }
