@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import withToggle from '../hocs/withToggle';
 
 class Modal extends Component {
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  handleKeyDown = (event) => {
-    if (event.key === 'Escape') {
-      const { onClose } = this.props;
-      onClose();
-    }
-  };
-
   render() {
     const { onClose } = this.props;
     return (
@@ -65,4 +51,4 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default Modal;
+export default withToggle(Modal);

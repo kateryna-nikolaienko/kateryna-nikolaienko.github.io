@@ -1104,10 +1104,9 @@ td, th {
     }
 
     .modal-video__box iframe {
-        width: 260px;
+        width: 320px;
         height: 200px;
     }
-
 }
 
 @media (max-width: 365px) {

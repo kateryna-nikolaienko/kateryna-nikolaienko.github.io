@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import withToggle from '../hocs/withToggle';
 
 class ModalVideo extends Component {
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  handleKeyDown = (event) => {
-    if (event.key === 'Escape') {
-      const { onClose } = this.props;
-      onClose();
-    }
-  };
-
   render() {
     const { onClose } = this.props;
     return (
@@ -55,4 +41,4 @@ ModalVideo.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default ModalVideo;
+export default withToggle(ModalVideo);
