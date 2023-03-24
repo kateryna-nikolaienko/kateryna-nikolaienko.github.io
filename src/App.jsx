@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     const {
       aboutContent, email, phone, location, footerCompanyContent, footerAboutContent, link, nameCompany,
-      headerContent, introduceName, introduceGithub, introduceDesign,
+      headerContent, introduceName, introduceGithub, introduceDesign
     } = this.state;
 
     return (

@@ -32,7 +32,10 @@ class HomePage extends Component {
       <div className="body">
         <div className="wrapper">
 
-          <Header nameCompany={nameCompany} headerContent={headerContent} />
+          <Header
+            nameCompany={nameCompany}
+            headerContent={headerContent}
+          />
 
           <main className="page">
 

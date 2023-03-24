@@ -8,13 +8,30 @@ import Navigation from './Navigation';
 import Button from '../Buttons/Button';
 import Partners from '../PartnersList/Partners';
 import BurgerButton from '../Buttons/BurgerButton';
+import Modal from '../Modal';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShowModal: false
+    };
+  }
+
+  handleShowModal = () => {
+    this.setState({ isShowModal: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ isShowModal: false });
+  };
+
   render() {
     const {
       nameCompany, headerContent
     } = this.props;
 
+    const { isShowModal } = this.state;
     return (
       <header className="header">
         <div className="container">
@@ -28,7 +45,7 @@ class Header extends Component {
 
               <div className="header__box">
 
-                <Button className="menu__button" text="Sign In" />
+                <Button className="menu__button" text="Sign In" onClick={this.handleShowModal} />
 
                 <BurgerButton />
 
@@ -47,7 +64,7 @@ class Header extends Component {
                   {headerContent}
                 </p>
                 <div className="header__content-buttons">
-                  <Button className="header__btn" text="Get Started" />
+                  <Button className="header__btn" text="Get Started" onClick={this.handleShowModal} />
                   <a className="header__btn header__btn-box" href="/">
                     <img
                       className="header__btn-img"
@@ -64,6 +81,8 @@ class Header extends Component {
             </div>
 
             <Partners />
+
+            {isShowModal && <Modal onClose={this.handleCloseModal} /> }
 
           </div>
         </div>
