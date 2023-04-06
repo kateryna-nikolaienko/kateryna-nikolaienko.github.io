@@ -21,7 +21,7 @@ class Team extends Component {
 
   getData = async () => {
     const response = await fetch('https://reqres.in/api/users?page=2');
-    const data = await response.json();
+    const { data } = await response.json();
     this.setState({ team: data });
   };
 
