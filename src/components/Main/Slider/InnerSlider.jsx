@@ -6,6 +6,7 @@ import sliderPicture3 from '../../../assets/images/slider/3.png';
 import sliderPicture4 from '../../../assets/images/slider/4.png';
 import sliderPicture5 from '../../../assets/images/slider/5.png';
 import SliderItem from './SliderItem';
+import ContextThemeColor from '../../../context/ContextThemeColor';
 
 class InnerSlider extends Component {
   constructor(props) {
@@ -108,22 +109,28 @@ class InnerSlider extends Component {
     };
 
     return (
-      <Slider
-        ref={this.sliderRef}
-        className="slider slick-slider"
-        dots={settings.dots}
-        infinite={settings.infinite}
-        slidesToShow={settings.slidesToShow}
-        slidesToScroll={settings.slidesToScroll}
-        responsive={settings.responsive}
-      >
-        {sliderItems.map(({
-          id, src, text, title
+      <ContextThemeColor.Consumer>
+        {({
+          theme
         }) => (
-          <SliderItem key={id} src={src} text={text} title={title} />
-        ))}
+          <Slider
+            ref={this.sliderRef}
+            className={`slider slick-slider ${theme}`}
+            dots={settings.dots}
+            infinite={settings.infinite}
+            slidesToShow={settings.slidesToShow}
+            slidesToScroll={settings.slidesToScroll}
+            responsive={settings.responsive}
+          >
+            {sliderItems.map(({
+              id, src, text, title
+            }) => (
+              <SliderItem key={id} src={src} text={text} title={title} />
+            ))}
 
-      </Slider>
+          </Slider>
+        )}
+      </ContextThemeColor.Consumer>
     );
   }
 }

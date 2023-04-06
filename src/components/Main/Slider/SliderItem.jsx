@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ContextThemeColor from '../../../context/ContextThemeColor';
 
 class SliderItem extends Component {
   render() {
     const {
-      src, text, title
+      src,
+      text,
+      title
     } = this.props;
     return (
-      <div className="slider__box slick-list">
-        <div className="slider__item">
-          <div className="slider__picture">
-            <img src={src} alt="" />
+      <ContextThemeColor.Consumer>
+        {({
+          theme
+        }) => (
+          <div className="slider__box slick-list">
+            <div className={`slider__item ${theme}`}>
+              <div className="slider__picture">
+                <img src={src} alt="" />
+              </div>
+              <h4 className="slider__title">
+                {title}
+              </h4>
+              <p className="slider__text">
+                {text}
+              </p>
+            </div>
           </div>
-          <h4 className="slider__title">
-            {title}
-          </h4>
-          <p className="slider__text">
-            {text}
-          </p>
-        </div>
-      </div>
+        )}
+      </ContextThemeColor.Consumer>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ContextThemeColor from '../../context/ContextThemeColor';
 
 class Team extends Component {
   constructor(props) {
@@ -27,30 +28,36 @@ class Team extends Component {
   render() {
     const { team } = this.state;
     return (
-      <section className="team">
-        <div className="container">
-          <div className="team__inner">
-            <div className="team__title">
-              OUR BIG TEAM
-            </div>
-            <ul className="team__list">
-              {team.map((person) => (
-                <ul className="team__list-item" key={person.id}>
-                  <li className="team__list-name">
-                    {`${person.first_name} ${person.last_name}`}
-                  </li>
-                  <li className="team__list-email">
-                    {person.email}
-                  </li>
-                  <li className="team__list-img">
-                    <img src={person.avatar} alt="Person" />
-                  </li>
+      <ContextThemeColor.Consumer>
+        {({
+          theme
+        }) => (
+          <section className={`team ${theme}`}>
+            <div className="container">
+              <div className="team__inner">
+                <div className="team__title">
+                  OUR BIG TEAM
+                </div>
+                <ul className="team__list">
+                  {team.map((person) => (
+                    <ul className="team__list-item" key={person.id}>
+                      <li className={`team__list-name ${theme}`}>
+                        {`${person.first_name} ${person.last_name}`}
+                      </li>
+                      <li className={`team__list-email ${theme}`}>
+                        {person.email}
+                      </li>
+                      <li className="team__list-img">
+                        <img src={person.avatar} alt="Person" />
+                      </li>
+                    </ul>
+                  ))}
                 </ul>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+              </div>
+            </div>
+          </section>
+        )}
+      </ContextThemeColor.Consumer>
     );
   }
 }

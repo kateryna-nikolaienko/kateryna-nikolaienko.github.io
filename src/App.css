@@ -5,6 +5,36 @@
     font-weight: 600;
     color: #fff;
     background-color: #0A101D;
+    transition: 0.5s;
+}
+
+.body.light,
+.header.light,
+.header__top.light,
+.team.light,
+.about.light,
+.slider.light,
+.solutions.light,
+.footer.light,
+.footer__language.light {
+    color: #000;
+    background-color: #c5d2ed;
+    transition: 0.5s;
+}
+
+.team__list-name.light,
+.team__list-email.light {
+    color: #000;
+    transition: 0.5s;
+}
+
+.slider__item.light {
+    background-color: #abc1f0;
+    transition: 0.5s;
+}
+
+.footer__inner-icon.light path{
+    stroke: #000;
 }
 
 .wrapper {
@@ -23,6 +53,7 @@
 
 .header {
     background-color: #0A101D;
+    transition: 0.5s;
 }
 
 .header__top {
@@ -31,6 +62,26 @@
     justify-content: space-between;
     align-items: center;
     padding: 21px 0 22px;
+    transition: 0.5s;
+}
+
+.change-theme {
+    position: fixed;
+    left: -20px;
+    transform: rotate(90deg);
+    z-index: 1000;
+}
+
+.change-theme__button {
+    font-size: 13px;
+    line-height: 18px;
+    padding: 5px 10px;
+    background: #3A68B8;
+    border-radius: 5px;
+    transition: 0.5s;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 .menu__list {
@@ -290,6 +341,7 @@ td, th {
 .team {
     padding: 60px 0;
     background-color: #030A17;
+    transition: 0.5s;
 }
 
 .team__title {
@@ -318,11 +370,13 @@ td, th {
     font-weight: bold;
     color: #fff;
     margin-bottom: 10px;
+    transition: 0.5s;
 }
 
 .team__list-email {
     color: #fff;
     margin-bottom: 10px;
+    transition: 0.5s;
 }
 
 .team__list-img img {
@@ -335,6 +389,7 @@ td, th {
 .about {
     padding: 100px 0 170px;
     background-color: #030A17;
+    transition: 0.5s;
 }
 
 .about__inner {
@@ -382,6 +437,7 @@ td, th {
     justify-content: space-between;
     max-width: 1930px;
     padding-bottom: 50px;
+    transition: 0.5s;
 }
 
 .slider__item {
@@ -393,6 +449,7 @@ td, th {
     text-align: center;
     max-width: 362px;
     margin: 0 auto;
+    transition: 0.5s;
 }
 
 .slider__picture {
@@ -447,6 +504,7 @@ td, th {
 .solutions {
     padding: 170px 0;
     background-color: #030A17;
+    transition: 0.5s;
 }
 
 .solutions__inner {
@@ -481,6 +539,11 @@ td, th {
     font-weight: 450;
     font-size: 14px;
     line-height: 18px;
+    transition: 0.5s;
+}
+
+.footer__inner-email {
+    stroke: black;
 }
 
 .footer__inner {
@@ -593,6 +656,11 @@ td, th {
     position: absolute;
     right: -10px;
     top: 0;
+}
+
+.footer__language.light::after {
+    content: url(assets/icons/arrow-down-black.svg);
+    transition: 0.5s;
 }
 
 .introduce {

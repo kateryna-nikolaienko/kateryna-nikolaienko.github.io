@@ -10,6 +10,7 @@ import Solutions from './Main/Solutions';
 import Footer from './Footer/Footer';
 import Introduce from './Introduce/Introduce';
 import Team from './Main/Team';
+import ContextThemeColor from '../context/ContextThemeColor';
 
 class HomePage extends Component {
   render() {
@@ -29,45 +30,51 @@ class HomePage extends Component {
     } = this.props;
 
     return (
-      <div className="body">
-        <div className="wrapper">
+      <ContextThemeColor.Consumer>
+        {({
+          theme
+        }) => (
+          <div className={`body ${theme}`}>
+            <div className="wrapper">
 
-          <Header
-            nameCompany={nameCompany}
-            headerContent={headerContent}
-          />
+              <Header
+                nameCompany={nameCompany}
+                headerContent={headerContent}
+              />
 
-          <main className="page">
+              <main className="page">
 
-            <Table />
+                <Table />
 
-            <Team />
+                <Team />
 
-            <AboutCompany aboutContent={aboutContent} />
+                <AboutCompany aboutContent={aboutContent} />
 
-            <InnerSlider />
+                <InnerSlider />
 
-            <Solutions />
+                <Solutions />
 
-          </main>
+              </main>
 
-          <Footer
-            email={email}
-            phone={phone}
-            link={link}
-            location={location}
-            footerCompanyContent={footerCompanyContent}
-            footerAboutContent={footerAboutContent}
-          />
+              <Footer
+                email={email}
+                phone={phone}
+                link={link}
+                location={location}
+                footerCompanyContent={footerCompanyContent}
+                footerAboutContent={footerAboutContent}
+              />
 
-          <Introduce
-            introduceName={introduceName}
-            introduceGithub={introduceGithub}
-            introduceDesign={introduceDesign}
-          />
+              <Introduce
+                introduceName={introduceName}
+                introduceGithub={introduceGithub}
+                introduceDesign={introduceDesign}
+              />
 
-        </div>
-      </div>
+            </div>
+          </div>
+        )}
+      </ContextThemeColor.Consumer>
     );
   }
 }
