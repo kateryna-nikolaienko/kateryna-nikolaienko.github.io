@@ -79,6 +79,10 @@
     cursor: pointer;
 }
 
+.change-theme__button:focus {
+    outline: none;
+}
+
 .menu__list {
     display: flex;
     justify-content: space-between;
