@@ -67,7 +67,8 @@
 
 .change-theme {
     position: fixed;
-    right: -20px;
+    padding-top: 30px;
+    right: -50px;
     transform: rotate(90deg);
     z-index: 1000;
 }

@@ -11,6 +11,7 @@ import InstagramIcon from '../Icons/InstagramIcon';
 import TwitterIcon from '../Icons/TwitterIcon';
 import LinkedinIcon from '../Icons/linkedinIcon';
 import YoutubeIcon from '../Icons/YoutubeIcon';
+import { BLACK_ICON, WHITE_ICON } from '../../constants/Constants';
 
 class Footer extends Component {
   constructor(props) {
@@ -149,18 +150,18 @@ class Footer extends Component {
 
                   <div className="footer__inner-contacts">
                     <a className={`footer__inner-email ${theme}`} href="mailto:Company@gmail.com">
-                      <EmailIcon color={theme === 'dark' ? 'white' : 'black'} />
+                      <EmailIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
                       {email}
                     </a>
                     <a className={`footer__inner-phone ${theme}`} href="tel:064-332-1233">
-                      <PhoneIcon color={theme === 'dark' ? 'white' : 'black'} />
+                      <PhoneIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
                       {phone}
                     </a>
                     <a
                       className={`footer__inner-location ${theme}`}
                       href="https://goo.gl/maps/pXKYQNYwuocuw3Rq5"
                     >
-                      <LocationIcon color={theme === 'dark' ? 'white' : 'black'} />
+                      <LocationIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
                       {location}
                     </a>
                   </div>
@@ -215,11 +216,11 @@ class Footer extends Component {
                   </a>
 
                   <ul className="footer__socials">
-                    <FacebookIcon color={theme === 'dark' ? 'white' : 'black'} />
-                    <InstagramIcon color={theme === 'dark' ? 'white' : 'black'} />
-                    <TwitterIcon color={theme === 'dark' ? 'white' : 'black'} />
-                    <LinkedinIcon color={theme === 'dark' ? 'white' : 'black'} />
-                    <YoutubeIcon color={theme === 'dark' ? 'white' : 'black'} />
+                    <FacebookIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
+                    <InstagramIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
+                    <TwitterIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
+                    <LinkedinIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
+                    <YoutubeIcon color={theme === BLACK_ICON ? WHITE_ICON : BLACK_ICON} />
                   </ul>
 
                   <button className={`footer__language ${theme}`} type="button">

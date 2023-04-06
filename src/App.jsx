@@ -4,6 +4,7 @@ import './Reset.css';
 import './Slick.css';
 import HomePage from './components/HomePage';
 import ContextThemeColor from './context/ContextThemeColor';
+import { DARK_THEME, LIGHT_THEME } from './constants/Constants';
 
 class App extends Component {
   constructor(props) {
@@ -25,13 +26,13 @@ class App extends Component {
       introduceName: 'Kateryna Nikolaienko',
       introduceGithub: 'https://github.com/kateryna-nikolaienko/kateryna-nikolaienko.github.io',
       introduceDesign: 'https://www.figma.com/file/vnIOQPl9yTWOrZruLTzsbc/Untitled?node-id=0%3A7&t=aBC8SpIdPB3B6ulK-0',
-      theme: 'dark',
+      theme: DARK_THEME,
     };
   }
 
   toggleTheme = () => {
     this.setState((prevState) => ({
-      theme: prevState.theme === 'dark' ? 'light' : 'dark',
+      theme: prevState.theme === DARK_THEME ? LIGHT_THEME : DARK_THEME,
     }));
   };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Buttons/Button';
 import { ARROW_UP, ARROW_DOWN } from '../../constants/Constants';
+import TableContent from './TableContent';
 
 class Table extends Component {
   constructor(props) {
@@ -59,33 +60,6 @@ class Table extends Component {
     };
     this.tableRef = React.createRef();
   }
-
-  renderTableContent = () => {
-    const {
-      attacks,
-      activeElement
-    } = this.state;
-
-    return attacks.map((item) => {
-      return (
-        <tr
-          key={item.year}
-          onClick={() => this.handleRowClick(item)}
-          onKeyDown={this.handleKeyPress}
-          className={(item === activeElement) ? 'activeRow' : ''}
-          tabIndex={0}
-          draggable
-          onDragStart={(e) => this.dragStartHandler(e, item)}
-          onDragOver={(e) => this.dragOverHandler(e)}
-          onDrop={(e) => this.dropHandler(e, item)}
-        >
-          <td>{item.year}</td>
-          <td>{item.description.name}</td>
-          <td>{item.description.damage}</td>
-        </tr>
-      );
-    });
-  };
 
   handleRowClick = (item) => {
     this.setState(({ activeElement }) => ({ activeElement: activeElement === item ? null : item }));
@@ -221,6 +195,7 @@ class Table extends Component {
   }
 
   render() {
+    const { attacks, activeElement } = this.state;
     return (
       <section className="table">
         <div className="table__container container">
@@ -233,7 +208,15 @@ class Table extends Component {
                 <th>Description</th>
               </tr>
 
-              {this.renderTableContent()}
+              <TableContent
+                attacks={attacks}
+                activeElement={activeElement}
+                handleRowClick={this.handleRowClick}
+                handleKeyPress={this.handleKeyPress}
+                dragStartHandler={this.dragStartHandler}
+                dragOverHandler={this.dragOverHandler}
+                dropHandler={this.dropHandler}
+              />
 
             </tbody>
           </table>
