@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../Buttons/Button';
+import { ARROW_UP, ARROW_DOWN } from '../../constants/Constants';
 
 class Table extends Component {
   constructor(props) {
@@ -95,13 +96,13 @@ class Table extends Component {
       activeElement,
       attacks
     } = this.state;
-    const activeIndex = activeElement ? activeElement.index : -1;
+    const activeIndex = activeElement ? activeElement.id : -1;
     event.preventDefault();
-    if (event.key === 'ArrowUp') {
+    if (event.key === ARROW_UP) {
       if (activeIndex > 0) {
         this.setState({ activeElement: attacks[activeIndex - 1] });
       }
-    } else if (event.key === 'ArrowDown') {
+    } else if (event.key === ARROW_DOWN) {
       if (activeIndex < attacks.length - 1) {
         this.setState({ activeElement: attacks[activeIndex + 1] });
       }
