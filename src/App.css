@@ -67,20 +67,14 @@
 
 .change-theme {
     position: fixed;
-    padding-top: 30px;
-    right: -50px;
-    transform: rotate(90deg);
+    top: 60px;
+    right: 4px;
     z-index: 1000;
+    width: 40px;
 }
 
 .change-theme__button {
-    font-size: 13px;
-    line-height: 18px;
-    padding: 5px 10px;
-    background: #3A68B8;
-    border-radius: 5px;
-    transition: 0.5s;
-    color: #fff;
+    background: transparent;
     border: none;
     cursor: pointer;
 }
