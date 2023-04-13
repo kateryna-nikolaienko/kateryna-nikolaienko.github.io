@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import sliderPicture1 from '../../../assets/images/slider/1.png';
 import sliderPicture2 from '../../../assets/images/slider/2.png';
@@ -8,131 +8,115 @@ import sliderPicture5 from '../../../assets/images/slider/5.png';
 import SliderItem from './SliderItem';
 import ContextThemeColor from '../../../context/ContextThemeColor';
 
-class InnerSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sliderItems: [
-        {
-          id: 0,
-          src: sliderPicture1,
-          title: 'Naxly as the Winners in Global Agency Awards',
-          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-            + 'layouts and visual mockups.'
-        },
-        {
-          id: 1,
-          src: sliderPicture2,
-          title: 'Naxly as the Winners in Global Agency Awards',
-          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-            + 'layouts and visual mockups.'
-        },
-        {
-          id: 2,
-          src: sliderPicture3,
-          title: 'Naxly as the Winners in Global Agency Awards',
-          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-            + 'layouts and visual mockups.'
-        },
-        {
-          id: 3,
-          src: sliderPicture4,
-          title: 'Naxly as the Winners in Global Agency Awards',
-          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-            + 'layouts and visual mockups.'
-        },
-        {
-          id: 4,
-          src: sliderPicture5,
-          title: 'Naxly as the Winners in Global Agency Awards',
-          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-            + 'layouts and visual mockups.'
-        },
-        {
-          id: 4,
-          src: sliderPicture3,
-          title: 'Naxly as the Winners in Global Agency Awards',
-          text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-            + 'layouts and visual mockups.'
-        },
-      ]
-    };
-    this.sliderRef = React.createRef(); // create a reference to an object
-  }
+function InnerSlider() {
+  const sliderItems = [
+    {
+      id: 0,
+      src: sliderPicture1,
+      title: 'Naxly as the Winners in Global Agency Awards',
+      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+        + 'layouts and visual mockups.'
+    },
+    {
+      id: 1,
+      src: sliderPicture2,
+      title: 'Naxly as the Winners in Global Agency Awards',
+      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+        + 'layouts and visual mockups.'
+    },
+    {
+      id: 2,
+      src: sliderPicture3,
+      title: 'Naxly as the Winners in Global Agency Awards',
+      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+        + 'layouts and visual mockups.'
+    },
+    {
+      id: 3,
+      src: sliderPicture4,
+      title: 'Naxly as the Winners in Global Agency Awards',
+      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+        + 'layouts and visual mockups.'
+    },
+    {
+      id: 4,
+      src: sliderPicture5,
+      title: 'Naxly as the Winners in Global Agency Awards',
+      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+        + 'layouts and visual mockups.'
+    },
+    {
+      id: 4,
+      src: sliderPicture3,
+      title: 'Naxly as the Winners in Global Agency Awards',
+      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
+        + 'layouts and visual mockups.'
+    },
+  ];
 
-  /**
-   *  Needed for the cards in the slider to change. The function sets an interval of 500ms,
-   *  and if there is a reference to the object, we call the next one
-   */
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      if (this.sliderRef.current) {
-        this.sliderRef.current.slickNext();
+  const sliderRef = useRef();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        sliderRef.current.slickNext();
       }
-    }, 500);
-  }
-
-  /**
-   * The function is needed so that when the slider cards are removed from the screen, they do not apply spacing
-   */
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    const { sliderItems } = this.state;
-    const settings = {
-      dots: true,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1580,
-          settings: {
-            slidesToShow: 3,
-          }
-        },
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 2,
-          }
-        },
-        {
-          breakpoint: 760,
-          settings: {
-            slidesToShow: 1,
-          }
-        }
-      ],
+    }, 1000);
+    return () => {
+      clearInterval(interval);
     };
+  }, []);
 
-    return (
-      <ContextThemeColor.Consumer>
-        {({
-          theme
-        }) => (
-          <Slider
-            ref={this.sliderRef}
-            className={`slider slick-slider ${theme}`}
-            dots={settings.dots}
-            infinite={settings.infinite}
-            slidesToShow={settings.slidesToShow}
-            slidesToScroll={settings.slidesToScroll}
-            responsive={settings.responsive}
-          >
-            {sliderItems.map(({
-              id, src, text, title
-            }) => (
-              <SliderItem key={id} src={src} text={text} title={title} />
-            ))}
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1580,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 760,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ],
+  };
 
-          </Slider>
-        )}
-      </ContextThemeColor.Consumer>
-    );
-  }
+  const { theme } = useContext(ContextThemeColor);
+
+  return (
+    <Slider
+      ref={sliderRef}
+      className={`slider slick-slider ${theme}`}
+      dots={settings.dots}
+      infinite={settings.infinite}
+      slidesToShow={settings.slidesToShow}
+      slidesToScroll={settings.slidesToScroll}
+      responsive={settings.responsive}
+    >
+      {sliderItems.map(({
+        id,
+        src,
+        text,
+        title
+      }) => (
+        <SliderItem key={id} src={src} text={text} title={title} />
+      ))}
+
+    </Slider>
+  );
 }
 
 export default InnerSlider;

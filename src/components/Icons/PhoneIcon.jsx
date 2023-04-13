@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class PhoneIcon extends Component {
-  render() {
-    const { color } = this.props;
-    return (
-      <div className="footer__inner-icon">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M9.03682 3.4847C9.64354 3.60307 10.2011 3.8998 10.6382 4.33691C11.0754 4.77401
+function PhoneIcon({ color }) {
+  return (
+    <div className="footer__inner-icon">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M9.03682 3.4847C9.64354 3.60307 10.2011 3.8998 10.6382 4.33691C11.0754 4.77401
           11.3721 5.33161 11.4905 5.93833L9.03682 3.4847ZM9.03682 1C10.2974 1.14004 11.4728 1.70452
           12.3702 2.60077C13.2676 3.49702 13.8335 4.67176 13.9752 5.93212L9.03682 1ZM13.354
           10.8891V12.7526C13.3547 12.9256 13.3192 13.0968 13.2499 13.2554C13.1806 13.4139 13.079
@@ -23,14 +21,13 @@ class PhoneIcon extends Component {
           10.2617L9.22938 9.47281C9.39827 9.3058 9.6115 9.1907 9.8438 9.14116C10.0761 9.09162 10.3177
           9.10971 10.5401 9.19328C11.1036 9.40358 11.6892 9.54945 12.2856 9.62811C12.5873 9.67067 12.8629
           9.82266 13.0599 10.0552C13.2569 10.2877 13.3615 10.5844 13.354 10.8891Z"
-            stroke={color}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-    );
-  }
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
 }
 
 PhoneIcon.propTypes = {

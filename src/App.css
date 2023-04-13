@@ -636,6 +636,7 @@ td, th {
 
 .footer__social {
     margin-right: 25px;
+    cursor: pointer;
 }
 
 .footer__language {

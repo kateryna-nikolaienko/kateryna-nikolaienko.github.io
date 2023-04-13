@@ -1,29 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 function withToggle(Component) {
-  class WrappedComponent extends React.Component {
-    componentDidMount() {
-      document.addEventListener('keydown', this.handleKeyDown);
-    }
-
-    componentWillUnmount() {
-      document.removeEventListener('keydown', this.handleKeyDown);
-    }
-
-    handleKeyDown = (event) => {
+  function WrappedComponent({ onClose }) {
+    const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        const { onClose } = this.props;
         onClose();
       }
     };
 
-    render() {
-      const {
-        onClose
-      } = this.props;
-      return <Component handleKeyDown={this.handleKeyDown} onClose={onClose} />;
-    }
+    useEffect(() => {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, []);
+
+    return <Component handleKeyDown={handleKeyDown} onClose={onClose} />;
   }
 
   WrappedComponent.propTypes = {

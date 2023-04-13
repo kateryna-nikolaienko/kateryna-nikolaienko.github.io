@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Logo extends Component {
-  render() {
-    const {
-      className,
-      href,
-      src,
-      alt
-    } = this.props;
-    return (
-      <a className={className} href={href}>
-        <img src={src} alt={alt} />
-      </a>
-    );
-  }
+function Logo({
+  className, href, src, alt 
+}) {
+  return (
+    <a className={className} href={href}>
+      <img src={src} alt={alt} />
+    </a>
+  );
 }
 
 Logo.propTypes = {

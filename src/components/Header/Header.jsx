@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Logo from './Logo';
 import logo from '../../logo.png';
@@ -13,104 +13,78 @@ import ModalVideo from '../Modals/ModalVideo';
 import ThemeToggleButton from '../Buttons/ThemeToggleButton';
 import ContextThemeColor from '../../context/ContextThemeColor';
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isShowModal: false,
-      isShowVideo: false,
-    };
-  }
+function Header({
+  nameCompany, headerContent
+}) {
+  const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowVideo, setIsShowVideo] = useState(false);
 
-  handleShowModal = () => {
-    this.setState({ isShowModal: true });
+  const handleShowModal = () => {
+    setIsShowModal(!isShowModal);
   };
 
-  handleCloseModal = () => {
-    this.setState({ isShowModal: false });
+  const handleShowVideo = () => {
+    setIsShowVideo(!isShowVideo);
   };
 
-  handleShowVideo = () => {
-    this.setState({ isShowVideo: true });
-  };
+  const { theme } = useContext(ContextThemeColor);
 
-  handleCloseVideo = () => {
-    this.setState({ isShowVideo: false });
-  };
+  return (
+    <header className={`header ${theme}`}>
+      <div className="container">
+        <div className="header__inner">
 
-  render() {
-    const {
-      nameCompany,
-      headerContent
-    } = this.props;
+          <div className={`header__top ${theme}`}>
 
-    const {
-      isShowModal,
-      isShowVideo
-    } = this.state;
-    return (
-      <ContextThemeColor.Consumer>
-        {({
-          theme
-        }) => (
-          <header className={`header ${theme}`}>
-            <div className="container">
-              <div className="header__inner">
+            <Logo className="logo" href="/" src={logo} alt="Logo" />
 
-                <div className={`header__top ${theme}`}>
+            <Navigation />
 
-                  <Logo className="logo" href="/" src={logo} alt="Logo" />
+            <div className="header__box">
 
-                  <Navigation />
+              <Button className="menu__button" text="Sign In" onClick={handleShowModal} />
 
-                  <div className="header__box">
+              <BurgerButton />
 
-                    <Button className="menu__button" text="Sign In" onClick={this.handleShowModal} />
+            </div>
+          </div>
 
-                    <BurgerButton />
-
-                  </div>
-                </div>
-
-                <div className="header__content">
-                  <ThemeToggleButton />
-                  <div className="header__content-left">
-                    <span className="header__content-subtitle">
-                      Next generation platform
-                    </span>
-                    <h1 className="header__content-title">
-                      {nameCompany}
-                    </h1>
-                    <p className="header__content-text">
-                      {headerContent}
-                    </p>
-                    <div className="header__content-buttons">
-                      <Button className="header__btn" text="Get Started" onClick={this.handleShowModal} />
-                      <Button
-                        className="header__btn header__btn-box"
-                        decor={playIcon}
-                        text="Watch Video"
-                        onClick={this.handleShowVideo}
-                      />
-                      {isShowVideo && <ModalVideo onClose={this.handleCloseVideo} />}
-                    </div>
-                  </div>
-                  <div className="header__content-right">
-                    <img src={headerPicture} alt="Cyber security" />
-                  </div>
-                </div>
-
-                <Partners />
-
-                {isShowModal && <Modal onClose={this.handleCloseModal} />}
-
+          <div className="header__content">
+            <ThemeToggleButton />
+            <div className="header__content-left">
+              <span className="header__content-subtitle">
+                Next generation platform
+              </span>
+              <h1 className="header__content-title">
+                {nameCompany}
+              </h1>
+              <p className="header__content-text">
+                {headerContent}
+              </p>
+              <div className="header__content-buttons">
+                <Button className="header__btn" text="Get Started" onClick={handleShowModal} />
+                <Button
+                  className="header__btn header__btn-box"
+                  decor={playIcon}
+                  text="Watch Video"
+                  onClick={handleShowVideo}
+                />
+                {isShowVideo && <ModalVideo onClose={handleShowVideo} />}
               </div>
             </div>
-          </header>
-        )}
-      </ContextThemeColor.Consumer>
-    );
-  }
+            <div className="header__content-right">
+              <img src={headerPicture} alt="Cyber security" />
+            </div>
+          </div>
+
+          <Partners />
+
+          {isShowModal && <Modal onClose={handleShowModal} />}
+
+        </div>
+      </div>
+    </header>
+  );
 }
 
 Header.propTypes = {
