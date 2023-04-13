@@ -7,14 +7,13 @@ function Button({
   onClick,
   decor
 }) {
-  const hasDecor = !!decor;
   return (
     <button
       className={className}
       onClick={onClick}
       type="button"
     >
-      {hasDecor && (
+      {!!decor && (
         <img
           className="header__btn-img"
           src={decor}
