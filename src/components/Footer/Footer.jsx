@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import footerLogo from '../../assets/images/logo2.png';
@@ -120,6 +120,16 @@ function Footer({
 
   const { t, i18n } = useTranslation();
 
+  const [open, setOpen] = useState(false);
+  const handleButton = () => {
+    setOpen(!open);
+  };
+
+  const handleLanguageChange = (language) => {
+    i18n.changeLanguage(language);
+    setOpen(false);
+  };
+
   return (
     <footer className={`footer ${theme}`}>
       <div className="footer__container container">
@@ -128,9 +138,7 @@ function Footer({
             <a className="footer__inner-logo" href="/">
               <img src={footerLogo} alt="Logotype" />
             </a>
-            <p className="footer__inner-text">
-              {t('footer.text1')}
-            </p>
+            <p className="footer__inner-text">{t('footer.text1')}</p>
 
             <div className="footer__inner-contacts">
               <a
@@ -217,14 +225,55 @@ function Footer({
               />
             </ul>
 
-            <button 
-              className={`footer__language ${theme}`} 
-              type="button"
-              onClick={() => i18n.changeLanguage('Chinese')}
-              data-testid="toggle-theme-button"
-            >
-              {i18n.language}
-            </button>
+            <div className="footer__language-dropdown">
+              <button
+                className={`footer__language ${theme}`}
+                type="button"
+                onClick={handleButton}
+              >
+                {i18n.language}
+              </button>
+              {open && (
+                <ul className="footer__language-menu">
+                  <li className="footer__language-item">
+                    <button
+                      className={`footer__language-button ${theme}`}
+                      type="button"
+                      onClick={() => handleLanguageChange('Italian')}
+                    >
+                      Italian
+                    </button>
+                  </li>
+                  <li className="footer__language-item">
+                    <button
+                      className={`footer__language-button ${theme}`}
+                      type="button"
+                      onClick={() => handleLanguageChange('Chinese')}
+                    >
+                      Chinese
+                    </button>
+                  </li>
+                  <li className="footer__language-item">
+                    <button
+                      className={`footer__language-button ${theme}`}
+                      type="button"
+                      onClick={() => handleLanguageChange('Ukrainian')}
+                    >
+                      Ukrainian
+                    </button>
+                  </li>
+                  <li className="footer__language-item">
+                    <button
+                      className={`footer__language-button ${theme}`}
+                      type="button"
+                      onClick={() => handleLanguageChange('English')}
+                    >
+                      English
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </div>
           </div>
         </div>
       </div>

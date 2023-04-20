@@ -649,6 +649,7 @@ td, th {
     background: transparent;
     color: #fff;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .footer__language img {
@@ -664,6 +665,37 @@ td, th {
 
 .footer__language.light::after {
     content: url(assets/icons/arrow-down-black.svg);
+    transition: 0.5s;
+}
+
+.footer__language-menu {
+    position: absolute;
+    padding-left: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.footer__language-button {
+    background: transparent;
+    width: 100px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 5px;
+    transition: 0.5s;
+}
+
+.footer__language-button.light {
+    color: black;
+}
+
+.footer__language-button.light:hover {
+    background-color: #a3c2fb;
+    transition: 0.5s;
+}
+
+.footer__language-button:hover {
+    background-color: #0b4bc6;
     transition: 0.5s;
 }
 
