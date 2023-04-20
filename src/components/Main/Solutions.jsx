@@ -1,34 +1,30 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import solutionPicture from '../../assets/images/solutions.png';
 import ContextThemeColor from '../../context/ContextThemeColor';
 
 function Solutions() {
   const { theme } = useContext(ContextThemeColor);
+  const { t } = useTranslation();
   return (
     <section className={`solutions ${theme}`}>
       <div className="solutions__container container">
         <div className="solutions__inner">
           <div className="solutions__inner-content">
             <h2 className="solutions__inner-title">
-              What our clients say about our awesome solutions
+              {t('solutions.title')}
             </h2>
             <p className="solutions__inner-text">
-              To take a trivial example, which of us ever undertakes
-              laborious physical exercise, except to obtain some advantage
-              from it who do not know.
+              {t('solutions.text1')}
             </p>
             <p className="solutions__inner-text">
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing .
+              {t('solutions.text2')}
             </p>
             <p className="solutions__inner-text">
-              Lorem ipsum is placeholder previewing layouts and visual
-              mockups.
+              {t('solutions.text3')}
             </p>
             <p className="solutions__inner-text">
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and
-              visual mockups.
+              {t('solutions.text4')}
             </p>
           </div>
           <div className="solutions__inner-img">

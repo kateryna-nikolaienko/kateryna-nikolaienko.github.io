@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import NavigationItem from './NavigationItem';
 
 function Navigation() {
@@ -6,35 +7,37 @@ function Navigation() {
     {
       id: 0,
       href: '/',
-      title: 'Home'
+      titleKey: 'header.navigationHome'
     },
     {
       id: 1,
       href: '/',
-      title: 'About'
+      titleKey: 'header.navigationAbout'
     },
     {
       id: 2,
       href: '/',
-      title: 'Services'
+      titleKey: 'header.navigationServices'
     },
     {
       id: 3,
       href: '/',
-      title: 'Blog'
+      titleKey: 'header.navigationBlog'
     },
     {
       id: 4,
       href: '/',
-      title: 'Contact'
+      titleKey: 'header.navigationContact'
     },
   ];
+
+  const { t } = useTranslation();
 
   return (
     <nav className="menu">
       <ul className="menu__list menu__list-left">
-        {navigationItems.map(({ id, href, title }) => (
-          <NavigationItem key={id} href={href} title={title} />
+        {navigationItems.map(({ id, href, titleKey }) => (
+          <NavigationItem key={id} href={href} title={t(titleKey)} />
         ))}
       </ul>
     </nav>

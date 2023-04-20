@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import logo from '../../logo.png';
 import playIcon from '../../assets/icons/play-button.svg';
@@ -13,9 +13,7 @@ import ModalVideo from '../Modals/ModalVideo';
 import ThemeToggleButton from '../Buttons/ThemeToggleButton';
 import ContextThemeColor from '../../context/ContextThemeColor';
 
-function Header({
-  nameCompany, headerContent
-}) {
+function Header() {
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowVideo, setIsShowVideo] = useState(false);
 
@@ -29,23 +27,25 @@ function Header({
 
   const { theme } = useContext(ContextThemeColor);
 
+  const { t } = useTranslation();
+
   return (
     <header className={`header ${theme}`}>
       <div className="container">
         <div className="header__inner">
-
           <div className={`header__top ${theme}`}>
-
             <Logo className="logo" href="/" src={logo} alt="Logo" />
 
             <Navigation />
 
             <div className="header__box">
-
-              <Button className="menu__button" text="Sign In" onClick={handleShowModal} />
+              <Button
+                className="menu__button"
+                text={t('header.buttonSignIn')}
+                onClick={handleShowModal}
+              />
 
               <BurgerButton />
-
             </div>
           </div>
 
@@ -53,20 +53,24 @@ function Header({
             <ThemeToggleButton />
             <div className="header__content-left">
               <span className="header__content-subtitle">
-                Next generation platform
+                {t('header.nameSubtitle')}
               </span>
               <h1 className="header__content-title">
-                {nameCompany}
+                {t('header.nameCompany')}
               </h1>
               <p className="header__content-text">
-                {headerContent}
+                {t('header.text')}
               </p>
               <div className="header__content-buttons">
-                <Button className="header__btn" text="Get Started" onClick={handleShowModal} />
+                <Button
+                  className="header__btn"
+                  text={t('header.buttonGetStarted')}
+                  onClick={handleShowModal}
+                />
                 <Button
                   className="header__btn header__btn-box"
                   decor={playIcon}
-                  text="Watch Video"
+                  text={t('header.buttonWatchVideo')}
                   onClick={handleShowVideo}
                 />
                 {isShowVideo && <ModalVideo onClose={handleShowVideo} />}
@@ -80,16 +84,10 @@ function Header({
           <Partners />
 
           {isShowModal && <Modal onClose={handleShowModal} />}
-
         </div>
       </div>
     </header>
   );
 }
-
-Header.propTypes = {
-  nameCompany: PropTypes.string.isRequired,
-  headerContent: PropTypes.string.isRequired,
-};
 
 export default Header;

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ContextThemeColor from '../../context/ContextThemeColor';
 
 function Team() {
@@ -22,12 +23,14 @@ function Team() {
 
   const { theme } = useContext(ContextThemeColor);
 
+  const { t } = useTranslation();
+
   return (
     <section className={`team ${theme}`}>
       <div className="container">
         <div className="team__inner">
           <div className="team__title">
-            OUR BIG TEAM
+            {t('team.title')}
           </div>
           <ul className="team__list">
             {team.map((person) => (

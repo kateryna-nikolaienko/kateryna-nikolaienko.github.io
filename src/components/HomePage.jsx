@@ -13,16 +13,10 @@ import Team from './Main/Team';
 import ContextThemeColor from '../context/ContextThemeColor';
 
 function HomePage({
-  aboutContent,
   email,
   phone,
   location,
-  footerCompanyContent,
-  footerAboutContent,
   link,
-  nameCompany,
-  headerContent,
-  introduceName,
   introduceGithub,
   introduceDesign,
 }) {
@@ -31,57 +25,36 @@ function HomePage({
   return (
     <div className={`body ${theme}`}>
       <div className="wrapper">
-
-        <Header
-          nameCompany={nameCompany}
-          headerContent={headerContent}
-        />
+        <Header />
 
         <main className="page">
-
           <Table />
 
           <Team />
 
-          <AboutCompany aboutContent={aboutContent} />
+          <AboutCompany />
 
           <InnerSlider />
 
           <Solutions />
-
         </main>
 
-        <Footer
-          email={email}
-          phone={phone}
-          link={link}
-          location={location}
-          footerCompanyContent={footerCompanyContent}
-          footerAboutContent={footerAboutContent}
-        />
+        <Footer email={email} phone={phone} link={link} location={location} />
 
         <Introduce
-          introduceName={introduceName}
           introduceGithub={introduceGithub}
           introduceDesign={introduceDesign}
         />
-
       </div>
     </div>
   );
 }
 
 HomePage.propTypes = {
-  aboutContent: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  footerCompanyContent: PropTypes.string.isRequired,
-  footerAboutContent: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  nameCompany: PropTypes.string.isRequired,
-  headerContent: PropTypes.string.isRequired,
-  introduceName: PropTypes.string.isRequired,
   introduceGithub: PropTypes.string.isRequired,
   introduceDesign: PropTypes.string.isRequired,
 };

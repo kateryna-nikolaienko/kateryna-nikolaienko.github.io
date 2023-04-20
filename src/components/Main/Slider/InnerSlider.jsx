@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import sliderPicture1 from '../../../assets/images/slider/1.png';
 import sliderPicture2 from '../../../assets/images/slider/2.png';
@@ -13,44 +14,38 @@ function InnerSlider() {
     {
       id: 0,
       src: sliderPicture1,
-      title: 'Naxly as the Winners in Global Agency Awards',
-      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-        + 'layouts and visual mockups.'
+      titleKey: 'slider.title',
+      textKey: 'slider.text',
     },
     {
       id: 1,
       src: sliderPicture2,
-      title: 'Naxly as the Winners in Global Agency Awards',
-      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-        + 'layouts and visual mockups.'
+      titleKey: 'slider.title1',
+      textKey: 'slider.text1',
     },
     {
       id: 2,
       src: sliderPicture3,
-      title: 'Naxly as the Winners in Global Agency Awards',
-      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-        + 'layouts and visual mockups.'
+      titleKey: 'slider.title2',
+      textKey: 'slider.text2',
     },
     {
       id: 3,
       src: sliderPicture4,
-      title: 'Naxly as the Winners in Global Agency Awards',
-      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-        + 'layouts and visual mockups.'
+      titleKey: 'slider.title3',
+      textKey: 'slider.text3',
     },
     {
       id: 4,
       src: sliderPicture5,
-      title: 'Naxly as the Winners in Global Agency Awards',
-      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-        + 'layouts and visual mockups.'
+      titleKey: 'slider.title4',
+      textKey: 'slider.text4',
     },
     {
-      id: 4,
+      id: 5,
       src: sliderPicture3,
-      title: 'Naxly as the Winners in Global Agency Awards',
-      text: 'Lorem ipsum is placeholder text commonly used in print, and publishing industries for previewing '
-        + 'layouts and visual mockups.'
+      titleKey: 'slider.title5',
+      textKey: 'slider.text5',
     },
   ];
 
@@ -96,6 +91,8 @@ function InnerSlider() {
 
   const { theme } = useContext(ContextThemeColor);
 
+  const { t } = useTranslation();
+
   return (
     <Slider
       ref={sliderRef}
@@ -109,10 +106,10 @@ function InnerSlider() {
       {sliderItems.map(({
         id,
         src,
-        text,
-        title
+        textKey,
+        titleKey
       }) => (
-        <SliderItem key={id} src={src} text={text} title={title} />
+        <SliderItem key={id} src={src} text={t(textKey)} title={t(titleKey)} />
       ))}
 
     </Slider>

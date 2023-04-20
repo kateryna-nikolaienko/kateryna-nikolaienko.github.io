@@ -564,6 +564,7 @@ td, th {
 }
 
 .footer__inner-text {
+    font-family: 'Open Sans', sans-serif;
     max-width: 260px;
     margin-bottom: 37px;
     opacity: 0.6;
@@ -599,6 +600,7 @@ td, th {
 }
 
 .footer__inner-title {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
@@ -615,6 +617,7 @@ td, th {
 }
 
 .footer__inner-link {
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 20px;
     opacity: 0.6;
 }
@@ -645,6 +648,7 @@ td, th {
     border: none;
     background: transparent;
     color: #fff;
+    cursor: pointer;
 }
 
 .footer__language img {

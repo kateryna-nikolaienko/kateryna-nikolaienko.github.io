@@ -1,9 +1,13 @@
 import React, { useRef, useState } from 'react';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 import Button from '../Buttons/Button';
 import { ARROW_UP, ARROW_DOWN } from '../../constants/Constants';
 import TableContent from './TableContent';
 
 function Table() {
+  const { t } = useTranslation();
+
   const [attacks, setAttacks] = useState([
     {
       id: 0,
@@ -11,7 +15,7 @@ function Table() {
       description: {
         name: 'Morris Worm',
         damage: 'The first large-scale cyberattack that spread over the '
-          + 'Internet and affected more than 6,000 computers.'
+        + 'Internet and affected more than 6,000 computers.',
       }
     },
     {
@@ -20,7 +24,7 @@ function Table() {
       description: {
         name: 'ILOVEYOU',
         damage: 'One of the most famous viruses that spread through e-mail '
-          + 'and caused significant damage.'
+        + 'and caused significant damage.',
       }
     },
     {
@@ -29,7 +33,7 @@ function Table() {
       description: {
         name: 'Storm Worm',
         damage: 'A massive botnet that was used to send spam and conduct '
-          + 'DDoS attacks.'
+        + 'DDoS attacks.',
       }
     },
     {
@@ -38,16 +42,16 @@ function Table() {
       description: {
         name: 'WannaCry',
         damage: 'A massive cyber attack that affected computer systems '
-          + 'around the world, including healthcare systems and financial institutions.'
+        + 'around the world, including healthcare systems and financial institutions.',
       }
     },
     {
       id: 4,
       year: 2020,
       description: {
-        name: 'SolarWinds',
+        name: 'Solar Winds',
         damage: 'The hacking attack on the American company SolarWinds, '
-          + 'which took place due to a broken software package, affected many large companies and institutions.'
+        + 'which took place due to a broken software package, affected many large companies and institutions.',
       }
     }
   ]);
@@ -89,8 +93,7 @@ function Table() {
       ...newAttacks[0],
       description: {
         ...newAttacks[0].description,
-        damage: 'The first large-scale cyberattack that spread over the '
-            + 'Internet and affected more than 6,000 computers.',
+        damage: i18next.t('table.Petya')
       }
     };
     setAttacks(newAttacks);
@@ -127,8 +130,8 @@ function Table() {
       year: 2017,
       description: {
         name: 'Petya',
-        damage: 'The program encrypts files on the victim computers hard drive, and also overwrites and encrypts '
-            + 'the master boot record — the data needed to boot the operating system.'
+        damage: 'The program encrypts files on the victim computers hard drive, and also overwrites and' 
+        + 'encrypts the master boot record — the data needed to boot the operating system.'
       }
     };
     const newAttacks = [...attacks, newObject];
@@ -177,13 +180,13 @@ function Table() {
   return (
     <section className="table">
       <div className="table__container container">
-        <h1 className="table__title">The most popular cyber attacks</h1>
+        <h1 className="table__title">{t('table.title')}</h1>
         <table className="table__inner">
           <tbody ref={tableRef}>
             <tr className="table__header">
-              <th>Year</th>
-              <th>Name</th>
-              <th>Description</th>
+              <th>{t('table.year')}</th>
+              <th>{t('table.name')}</th>
+              <th>{t('table.description')}</th>
             </tr>
 
             <TableContent
@@ -194,16 +197,17 @@ function Table() {
               dragStartHandler={dragStartHandler}
               dragOverHandler={dragOverHandler}
               dropHandler={dropHandler}
+              t={t}
             />
 
           </tbody>
         </table>
-        <Button className="table__btn" text="Sort by years" onClick={sortArray} />
-        <Button className="table__btn" text="Add new attack" onClick={addNewObject} />
-        <Button className="table__btn" text="Remove" onClick={removeLastElement} />
-        <Button className="table__btn" text="Remove element" onClick={removeElementFromObject} />
-        <Button className="table__btn" text="Add element" onClick={addElementToObject} />
-        <Button className="table__btn" text="Spread operator" onClick={rewriteBySpread} />
+        <Button className="table__btn" text={t('table.buttonSort')} onClick={sortArray} />
+        <Button className="table__btn" text={t('table.buttonAddAttack')} onClick={addNewObject} />
+        <Button className="table__btn" text={t('table.buttonRemove')} onClick={removeLastElement} />
+        <Button className="table__btn" text={t('table.buttonRemoveElement')} onClick={removeElementFromObject} />
+        <Button className="table__btn" text={t('table.buttonAddElement')} onClick={addElementToObject} />
+        <Button className="table__btn" text={t('table.buttonSpread')} onClick={rewriteBySpread} />
       </div>
     </section>
   );

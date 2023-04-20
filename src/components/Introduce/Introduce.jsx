@@ -1,30 +1,32 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 function Introduce({
-  introduceName, introduceGithub, introduceDesign
+  introduceGithub, introduceDesign
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className="introduce">
-      <p className="introduce__name">{ introduceName }</p>
+      <p className="introduce__name">{t('introduce.name')}</p>
       <a
         className="introduce__github"
         href={introduceGithub}
       >
-        GitHub account
+        {t('introduce.account')}
       </a>
       <a
         className="introduce__design"
         href={introduceDesign}
       >
-        Design
+        {t('introduce.design')}
       </a>
     </div>
   );
 }
 
 Introduce.propTypes = {
-  introduceName: PropTypes.string.isRequired,
   introduceGithub: PropTypes.string.isRequired,
   introduceDesign: PropTypes.string.isRequired,
 };
