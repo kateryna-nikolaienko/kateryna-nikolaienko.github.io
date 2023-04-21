@@ -15,16 +15,21 @@ export const resources = {
 
 export const appLocales = Object.keys(resources);
 
+const options = {
+  order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+  lookupLocalStorage: 'i18nLng',
+};
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'English',
-    fallbackLng: appLocales,
+    fallbackLng: 'English', 
     react: {
       useSuspense: true,
     },
+    detection: options,
   });
 
 export default i18n;
