@@ -95,6 +95,14 @@
     margin-right: 40px;
 }
 
+.menu__item-link {
+    transition: 0.5s;
+}
+
+.menu__item-link:hover {
+    color: #9ec1fd;
+}
+
 .menu__button {
     line-height: 22px;
     padding: 15px 30px;
@@ -620,6 +628,11 @@ td, th {
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 20px;
     opacity: 0.6;
+    transition: 0.5s;
+}
+
+.footer__inner-link:hover {
+    opacity: 1;
 }
 
 .footer__text {

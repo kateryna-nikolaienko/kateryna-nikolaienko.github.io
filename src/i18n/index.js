@@ -16,7 +16,7 @@ export const resources = {
 export const appLocales = Object.keys(resources);
 
 const options = {
-  order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+  order: ['localStorage'],
   lookupLocalStorage: 'i18nLng',
 };
 
