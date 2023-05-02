@@ -153,28 +153,26 @@ function Table() {
     });
   };
 
-  const dragStartHandler = (item) => {
-    return () => setCurrentCard(item);
+  const dragStartHandler = (e, item) => {
+    setCurrentCard(item);
   };
 
   const dragOverHandler = (e) => {
     e.preventDefault();
   };
 
-  const dropHandler = (item) => {
-    return () => {
-      if (currentCard) {
-        const droppedOnIndex = attacks.findIndex((el) => el === item);
-        const draggedElement = attacks.findIndex((el) => el.year === currentCard.year);
+  const dropHandler = (e, item) => {
+    if (currentCard) {
+      const droppedOnIndex = attacks.findIndex((el) => el === item);
+      const draggedElement = attacks.findIndex((el) => el.year === currentCard.year);
 
-        if (droppedOnIndex !== -1 && droppedOnIndex !== draggedElement) {
-          const newArray = [...attacks];
-          [newArray[droppedOnIndex], newArray[draggedElement]] = [newArray[draggedElement], newArray[droppedOnIndex]];
-          setAttacks(newArray);
-          setCurrentCard(null);
-        }
+      if (droppedOnIndex !== -1 && droppedOnIndex !== draggedElement) {
+        const newArray = [...attacks];
+        [newArray[droppedOnIndex], newArray[draggedElement]] = [newArray[draggedElement], newArray[droppedOnIndex]];
+        setAttacks(newArray);
+        setCurrentCard(null);
       }
-    };
+    }
   };
 
   return (

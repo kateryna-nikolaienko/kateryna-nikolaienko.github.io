@@ -13,7 +13,7 @@ const TableContent = ({
           className={(item === activeElement) ? 'activeRow' : ''}
           tabIndex={0}
           draggable
-          onDragStart={(e) => dragStartHandler(e, item)}
+          onDragStart={(e) => dragStartHandler(e, item)} 
           onDragOver={(e) => dragOverHandler(e)}
           onDrop={(e) => dropHandler(e, item)}
         >
