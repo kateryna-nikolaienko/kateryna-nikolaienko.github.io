@@ -21,32 +21,32 @@ function Footer({
     {
       id: 0,
       href: '/',
-      titleKey: 'footer.informationItem',
+      titleKey: 'footer.information.newCollection',
     },
     {
       id: 1,
       href: '/',
-      titleKey: 'footer.informationItem1',
+      titleKey: 'footer.information.aboutStore',
     },
     {
       id: 2,
       href: '/',
-      titleKey: 'footer.informationItem2',
+      titleKey: 'footer.information.contactUs',
     },
     {
       id: 3,
       href: '/',
-      titleKey: 'footer.informationItem3',
+      titleKey: 'footer.information.latestNews',
     },
     {
       id: 4,
       href: '/',
-      titleKey: 'footer.informationItem4',
+      titleKey: 'footer.information.ourSitemap',
     },
     {
       id: 5,
       href: '/',
-      titleKey: 'footer.informationItem5',
+      titleKey: 'footer.information.ordersHistory',
     },
   ];
 
@@ -54,32 +54,32 @@ function Footer({
     {
       id: 0,
       href: '/',
-      titleKey: 'footer.menuItem',
+      titleKey: 'footer.menu.instagramProfile',
     },
     {
       id: 1,
       href: '/',
-      titleKey: 'footer.menuItem1',
+      titleKey: 'footer.menu.newCollection',
     },
     {
       id: 2,
       href: '/',
-      titleKey: 'footer.menuItem2',
+      titleKey: 'footer.menu.contactUs',
     },
     {
       id: 3,
       href: '/',
-      titleKey: 'footer.menuItem3',
+      titleKey: 'footer.menu.latestNews',
     },
     {
       id: 4,
       href: '/',
-      titleKey: 'footer.menuItem4',
+      titleKey: 'footer.menu.termsConditions',
     },
     {
       id: 5,
       href: '/',
-      titleKey: 'footer.menuItem5',
+      titleKey: 'footer.menu.purchaseTheme',
     },
   ];
 
@@ -87,32 +87,32 @@ function Footer({
     {
       id: 0,
       href: '/',
-      titleKey: 'footer.linksItem',
+      titleKey: 'footer.links.newCollection',
     },
     {
       id: 1,
       href: '/',
-      titleKey: 'footer.linksItem1',
+      titleKey: 'footer.links.aboutStore',
     },
     {
       id: 2,
       href: '/',
-      titleKey: 'footer.linksItem2',
+      titleKey: 'footer.links.contactUs',
     },
     {
       id: 3,
       href: '/',
-      titleKey: 'footer.linksItem3',
+      titleKey: 'footer.links.latestNews',
     },
     {
       id: 4,
       href: '/',
-      titleKey: 'footer.linksItem4',
+      titleKey: 'footer.links.ourSitemap',
     },
     {
       id: 5,
       href: '/',
-      titleKey: 'footer.linksItem5',
+      titleKey: 'footer.links.ordersHistory',
     },
   ];
 
@@ -172,7 +172,7 @@ function Footer({
           </div>
 
           <div className="footer__inner-box">
-            <h4 className="footer__inner-title">{t('footer.information')}</h4>
+            <h4 className="footer__inner-title">{t('footer.informationTitle')}</h4>
             <ul className="footer__inner-list">
               {informationItems.map(({ id, href, titleKey }) => (
                 <FooterItem key={id} href={href} title={t(titleKey)} />
@@ -181,7 +181,7 @@ function Footer({
           </div>
 
           <div className="footer__inner-box">
-            <h4 className="footer__inner-title">{t('footer.menu')}</h4>
+            <h4 className="footer__inner-title">{t('footer.menuTitle')}</h4>
             <ul className="footer__inner-list">
               {menuItems.map(({ id, href, titleKey }) => (
                 <FooterItem key={id} href={href} title={t(titleKey)} />
