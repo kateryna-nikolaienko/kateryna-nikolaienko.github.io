@@ -197,7 +197,6 @@ function Table() {
               dragStartHandler={dragStartHandler}
               dragOverHandler={dragOverHandler}
               dropHandler={dropHandler}
-              t={t}
             />
 
           </tbody>

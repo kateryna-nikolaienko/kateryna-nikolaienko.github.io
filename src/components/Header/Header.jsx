@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
-import logo from '../../logo.png';
+import logo from '../../assets/images/logo.png';
 import playIcon from '../../assets/icons/play-button.svg';
 import headerPicture from '../../assets/images/header.png';
 import Navigation from './Navigation';
