@@ -5,7 +5,7 @@ import partnerPicture3 from '../../assets/images/partners/3.png';
 import partnerPicture4 from '../../assets/images/partners/4.png';
 import PartnersItem from './PartnersItem';
 
-function Partners() {
+function Partners() { 
   const partnerItems = [
     {
       id: 0,
