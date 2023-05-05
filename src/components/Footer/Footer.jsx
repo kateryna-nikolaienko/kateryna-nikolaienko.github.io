@@ -124,11 +124,17 @@ function Footer({
 
   const { theme } = useContext(ContextThemeColor);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [open, setOpen] = useState(false);
   const handleButton = () => {
     setOpen(!open);
+  };
+
+  const handleLanguageChange = (language) => {
+    dispatch(toggleLocale(language));
+    i18n.changeLanguage(language);
+    setOpen(false);
   };
 
   return (
@@ -240,7 +246,7 @@ function Footer({
                   <button
                     className={`footer__language-button ${theme}`}
                     type="button"
-                    onClick={() => dispatch(toggleLocale('Italian'))}
+                    onClick={() => handleLanguageChange('Italian')}
                   >
                     Italian
                   </button>
@@ -249,7 +255,7 @@ function Footer({
                   <button
                     className={`footer__language-button ${theme}`}
                     type="button"
-                    onClick={() => dispatch(toggleLocale('Chinese'))}
+                    onClick={() => handleLanguageChange('Chinese')}
                   >
                     Chinese
                   </button>
@@ -258,7 +264,7 @@ function Footer({
                   <button
                     className={`footer__language-button ${theme}`}
                     type="button"
-                    onClick={() => dispatch(toggleLocale('Ukrainian'))}
+                    onClick={() => handleLanguageChange('Ukrainian')}
                   >
                     Ukrainian
                   </button>
@@ -267,7 +273,7 @@ function Footer({
                   <button
                     className={`footer__language-button ${theme}`}
                     type="button"
-                    onClick={() => dispatch(toggleLocale('English'))}
+                    onClick={() => handleLanguageChange('English')}
                   >
                     English
                   </button>
