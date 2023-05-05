@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { localeLanguage } from '../../store/translates/selectors';
 import footerLogo from '../../assets/images/logo2.png';
 import FooterItem from './FooterItem';
 import ContextThemeColor from '../../context/ContextThemeColor';
@@ -13,10 +15,14 @@ import TwitterIcon from '../Icons/TwitterIcon';
 import LinkedinIcon from '../Icons/linkedinIcon';
 import YoutubeIcon from '../Icons/YoutubeIcon';
 import { BLACK_ICON, WHITE_ICON, DARK_THEME } from '../../constants/Constants';
+import { toggleLocale } from '../../store/translates/actions';
 
 function Footer({
   email, phone, location, link 
 }) {
+  const dispatch = useDispatch();
+  const locale = useSelector(localeLanguage);
+
   const informationItems = [
     {
       id: 0,
@@ -118,16 +124,11 @@ function Footer({
 
   const { theme } = useContext(ContextThemeColor);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [open, setOpen] = useState(false);
   const handleButton = () => {
     setOpen(!open);
-  };
-
-  const handleLanguageChange = (language) => {
-    i18n.changeLanguage(language);
-    setOpen(false);
   };
 
   return (
@@ -231,47 +232,47 @@ function Footer({
                 type="button"
                 onClick={handleButton}
               >
-                {i18n.language}
+                {locale}
               </button>
               {open && (
-                <ul className="footer__language-menu">
-                  <li className="footer__language-item">
-                    <button
-                      className={`footer__language-button ${theme}`}
-                      type="button"
-                      onClick={() => handleLanguageChange('Italian')}
-                    >
-                      Italian
-                    </button>
-                  </li>
-                  <li className="footer__language-item">
-                    <button
-                      className={`footer__language-button ${theme}`}
-                      type="button"
-                      onClick={() => handleLanguageChange('Chinese')}
-                    >
-                      Chinese
-                    </button>
-                  </li>
-                  <li className="footer__language-item">
-                    <button
-                      className={`footer__language-button ${theme}`}
-                      type="button"
-                      onClick={() => handleLanguageChange('Ukrainian')}
-                    >
-                      Ukrainian
-                    </button>
-                  </li>
-                  <li className="footer__language-item">
-                    <button
-                      className={`footer__language-button ${theme}`}
-                      type="button"
-                      onClick={() => handleLanguageChange('English')}
-                    >
-                      English
-                    </button>
-                  </li>
-                </ul>
+              <ul className="footer__language-menu">
+                <li className="footer__language-item">
+                  <button
+                    className={`footer__language-button ${theme}`}
+                    type="button"
+                    onClick={() => dispatch(toggleLocale('Italian'))}
+                  >
+                    Italian
+                  </button>
+                </li>
+                <li className="footer__language-item">
+                  <button
+                    className={`footer__language-button ${theme}`}
+                    type="button"
+                    onClick={() => dispatch(toggleLocale('Chinese'))}
+                  >
+                    Chinese
+                  </button>
+                </li>
+                <li className="footer__language-item">
+                  <button
+                    className={`footer__language-button ${theme}`}
+                    type="button"
+                    onClick={() => dispatch(toggleLocale('Ukrainian'))}
+                  >
+                    Ukrainian
+                  </button>
+                </li>
+                <li className="footer__language-item">
+                  <button
+                    className={`footer__language-button ${theme}`}
+                    type="button"
+                    onClick={() => dispatch(toggleLocale('English'))}
+                  >
+                    English
+                  </button>
+                </li>
+              </ul>
               )}
             </div>
           </div>

@@ -1,10 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import translates from './translates/reducers';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
 
-const store = configureStore({
-  reducer: {
-    translates,
-  }
-});
+const store = createStore(
+  rootReducer
+);
 
 export default store;
