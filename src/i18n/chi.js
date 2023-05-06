@@ -34,6 +34,7 @@ export default {
 
   team: {
     title: '我们的团队',
+    refresh: '刷新'
   },
 
   about: {

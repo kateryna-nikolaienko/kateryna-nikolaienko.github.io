@@ -39,6 +39,7 @@ export default {
 
   team: {
     title: 'Il nostro grande team',
+    refresh: 'Ricaricare'
   },
 
   about: {

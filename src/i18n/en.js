@@ -41,6 +41,7 @@ export default {
 
   team: {
     title: 'Our big team',
+    refresh: 'Refresh'
   },
 
   about: {

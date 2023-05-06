@@ -38,6 +38,7 @@ export default {
 
   team: {
     title: 'Наша велика команда',
+    refresh: 'Оновити'
   },
 
   about: {
