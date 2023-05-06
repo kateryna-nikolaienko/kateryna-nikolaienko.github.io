@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { localeLanguage } from '../../store/translates/selectors';
+import { useDispatch } from 'react-redux';
 import footerLogo from '../../assets/images/logo2.png';
 import FooterItem from './FooterItem';
 import ContextThemeColor from '../../context/ContextThemeColor';
@@ -21,7 +20,6 @@ function Footer({
   email, phone, location, link 
 }) {
   const dispatch = useDispatch();
-  const locale = useSelector(localeLanguage);
 
   const informationItems = [
     {
@@ -125,6 +123,8 @@ function Footer({
   const { theme } = useContext(ContextThemeColor);
 
   const { t, i18n } = useTranslation();
+
+  const localeLng = i18n.language;
 
   const [open, setOpen] = useState(false);
   const handleButton = () => {
@@ -238,7 +238,7 @@ function Footer({
                 type="button"
                 onClick={handleButton}
               >
-                {locale}
+                {localeLng}
               </button>
               {open && (
               <ul className="footer__language-menu">

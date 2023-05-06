@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import translates from './translates/reducers';
+import translationReducer from './translates/reducers';
+import teamReducer from './team/reducers';
 
 const rootReducer = combineReducers({
-  translates
+  translations: translationReducer,
+  team: teamReducer
 });
 
 export default rootReducer;
