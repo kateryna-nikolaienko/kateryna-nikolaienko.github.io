@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import footerLogo from '../../assets/images/logo2.png';
 import FooterItem from './FooterItem';
 import ContextThemeColor from '../../context/ContextThemeColor';
@@ -14,7 +14,7 @@ import TwitterIcon from '../Icons/TwitterIcon';
 import LinkedinIcon from '../Icons/linkedinIcon';
 import YoutubeIcon from '../Icons/YoutubeIcon';
 import { BLACK_ICON, WHITE_ICON, DARK_THEME } from '../../constants/Constants';
-import { toggleLocale } from '../../store/translates/reducers';
+import { changeLanguage } from '../../store/translates/actions';
 
 function Footer({
   email, phone, location, link 
@@ -132,8 +132,7 @@ function Footer({
   };
 
   const handleLanguageChange = (language) => {
-    dispatch(toggleLocale(language));
-    i18n.changeLanguage(language);
+    dispatch(changeLanguage(language));
     setOpen(false);
   };
 

@@ -1,35 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ContextThemeColor from '../../context/ContextThemeColor';
 import { teamData } from '../../store/team/selectors';
-import { saveData } from '../../store/team/reducers';
+import { getTeam } from '../../store/team/actions';
 
 function Team() {
   const dispatch = useDispatch();
   const teamArray = useSelector(teamData);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const getData = async () => {
-    setIsLoading(true);
-    const response = await fetch('https://reqres.in/api/users?page=2');
-    const { data } = await response.json();
-    dispatch(saveData(data));
-    setIsLoading(false); 
-  };
+  const { isLoading } = useSelector((state) => state.team);
 
   useEffect(() => {
-    getData()
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    dispatch(getTeam());
+  }, [dispatch]);
+
+  const handleRefresh = () => {
+    dispatch(getTeam());
+  };
 
   const { theme } = useContext(ContextThemeColor);
-
   const { t } = useTranslation();
 
   return (
@@ -38,7 +27,7 @@ function Team() {
         <div className="team__inner">
           <div className="team__title">
             {t('team.title')}
-            <button type="button" className="team__button" onClick={getData}>
+            <button type="button" className="team__button" onClick={handleRefresh}>
               <img className="team__icon" alt="reload" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png" />
               {isLoading ? (
                 <span className="loader" />

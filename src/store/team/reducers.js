@@ -1,17 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getTeam } from './actions';
 
 const initialState = {
-  teamArray: []
+  teamArray: [],
+  isLoading: false,
 };
 
 const teamSlice = createSlice({
   name: 'team',
   initialState,
-  reducers: {
-    saveData(state, action) {
-      state.teamArray = action.payload;
-    }
-  }
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getTeam.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getTeam.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.teamArray = action.payload;
+      });
+  },
 });
 
 export const { saveData } = teamSlice.actions;
