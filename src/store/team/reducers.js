@@ -1,21 +1,20 @@
-import { SAVE_DATA } from './types';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   teamArray: []
 };
 
-export const teamReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SAVE_DATA: {
-      return {
-        ...state,
-        teamArray: action.payload
-      };
+const teamSlice = createSlice({
+  name: 'team',
+  initialState,
+  reducers: {
+    saveData(state, action) {
+      state.teamArray = action.payload;
     }
-
-    default:
-      return state;
   }
-};
+});
+
+export const { saveData } = teamSlice.actions;
+export const teamReducer = teamSlice.reducer;
 
 export default teamReducer;

@@ -1,22 +1,20 @@
-import { TOGGLE_LOCALE } from './types';
+import { createSlice } from '@reduxjs/toolkit';
 import i18n from '../../i18n';
 
 export const initialState = {
   locale: i18n.language
 };
 
-export const translates = (state = initialState, action) => {
-  switch (action.type) {
-    case TOGGLE_LOCALE: {
-      return {
-        ...state,
-        locale: action.locale
-      };
+const translatesSlice = createSlice({
+  name: 'translates',
+  initialState,
+  reducers: {
+    toggleLocale(state, action) {
+      state.locale = action.payload;
     }
-
-    default: 
-      return state;
   }
-};
+});
 
+export const { toggleLocale } = translatesSlice.actions;
+export const translates = translatesSlice.reducer;
 export default translates;

@@ -14,7 +14,7 @@ import TwitterIcon from '../Icons/TwitterIcon';
 import LinkedinIcon from '../Icons/linkedinIcon';
 import YoutubeIcon from '../Icons/YoutubeIcon';
 import { BLACK_ICON, WHITE_ICON, DARK_THEME } from '../../constants/Constants';
-import { toggleLocale } from '../../store/translates/actions';
+import { toggleLocale } from '../../store/translates/reducers';
 
 function Footer({
   email, phone, location, link 

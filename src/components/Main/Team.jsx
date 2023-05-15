@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ContextThemeColor from '../../context/ContextThemeColor';
-import teamData from '../../store/team/selectors';
-import saveData from '../../store/team/actions';
+import { teamData } from '../../store/team/selectors';
+import { saveData } from '../../store/team/reducers';
 
 function Team() {
   const dispatch = useDispatch();

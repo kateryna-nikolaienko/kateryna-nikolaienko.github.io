@@ -1,8 +1,12 @@
-import { createStore } from 'redux';
-import rootReducer from './reducers';
+import { configureStore } from '@reduxjs/toolkit';
+import translates from './translates/reducers';
+import team from './team/reducers';
 
-const store = createStore(
-  rootReducer
-);
+const store = configureStore({
+  reducer: {
+    translates,
+    team
+  }
+});
 
 export default store;
