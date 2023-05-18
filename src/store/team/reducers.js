@@ -4,6 +4,7 @@ import { getTeam } from './actions';
 const initialState = {
   teamArray: [],
   isLoading: false,
+  error: false,
 };
 
 const teamSlice = createSlice({
@@ -18,6 +19,10 @@ const teamSlice = createSlice({
       .addCase(getTeam.fulfilled, (state, action) => {
         state.isLoading = false;
         state.teamArray = action.payload;
+      })
+      .addCase(getTeam.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
       });
   },
 });

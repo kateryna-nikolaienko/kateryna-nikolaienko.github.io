@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import translates from './translates/reducers';
-import team from './team/reducers';
+import translatesReducer from './translates/reducers';
+import teamReducer from './team/reducers';
 
 const store = configureStore({
   reducer: {
-    translates,
-    team
+    translates: translatesReducer,
+    team: teamReducer
   }
 });
 

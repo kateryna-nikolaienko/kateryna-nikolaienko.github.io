@@ -2,17 +2,18 @@ import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import ContextThemeColor from '../../context/ContextThemeColor';
-import { teamData } from '../../store/team/selectors';
+import { teamData, loading, error } from '../../store/team/selectors';
 import { getTeam } from '../../store/team/actions';
 
 function Team() {
   const dispatch = useDispatch();
   const teamArray = useSelector(teamData);
-  const { isLoading } = useSelector((state) => state.team);
+  const isLoading = useSelector(loading);
+  const isError = useSelector((error));
 
   useEffect(() => {
     dispatch(getTeam());
-  }, [dispatch]);
+  }, []);
 
   const handleRefresh = () => {
     dispatch(getTeam());
@@ -29,11 +30,9 @@ function Team() {
             {t('team.title')}
             <button type="button" className="team__button" onClick={handleRefresh}>
               <img className="team__icon" alt="reload" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png" />
-              {isLoading ? (
-                <span className="loader" />
-              ) : (
-                <span>{t('team.refresh')}</span>
-              )}
+              {isLoading && <span className="loader" />}
+              {!isLoading && !isError && <span>{t('team.refresh')}</span>}
+              {isError && (<h1>Error Loading</h1>)}
             </button>
           </div>
           {teamArray !== undefined && (
