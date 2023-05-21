@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import translatesReducer from './translates/reducers';
-import teamReducer from './team/reducers';
+import teamApi from './apis/team';
 
 const store = configureStore({
   reducer: {
+    [teamApi.reducerPath]: teamApi.reducer,
     translates: translatesReducer,
-    team: teamReducer
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    .concat([
+      teamApi.middleware,
+    ])
 });
 
 export default store;

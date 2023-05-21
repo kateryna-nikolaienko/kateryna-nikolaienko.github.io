@@ -1,23 +1,13 @@
-import React, { useContext, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import ContextThemeColor from '../../context/ContextThemeColor';
-import { teamData, loading, error } from '../../store/team/selectors';
-import { getTeam } from '../../store/team/actions';
+import { useGetTeamQuery } from '../../store/apis/team';
 
 function Team() {
-  const dispatch = useDispatch();
-  const teamArray = useSelector(teamData);
-  const isLoading = useSelector(loading);
-  const isError = useSelector((error));
-
-  useEffect(() => {
-    dispatch(getTeam());
-  }, []);
-
-  const handleRefresh = () => {
-    dispatch(getTeam());
-  };
+  const {
+    data, refetch, isFetching, isError
+  } = useGetTeamQuery();
+  console.log(data);
 
   const { theme } = useContext(ContextThemeColor);
   const { t } = useTranslation();
@@ -28,16 +18,16 @@ function Team() {
         <div className="team__inner">
           <div className="team__title">
             {t('team.title')}
-            <button type="button" className="team__button" onClick={handleRefresh}>
+            <button type="button" className="team__button" onClick={refetch}>
               <img className="team__icon" alt="reload" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png" />
-              {isLoading && <span className="loader" />}
-              {!isLoading && !isError && <span>{t('team.refresh')}</span>}
+              {isFetching && <span className="loader" />}
+              {!isFetching && !isError && <span>{t('team.refresh')}</span>}
               {isError && (<h1>Error Loading</h1>)}
             </button>
           </div>
-          {teamArray !== undefined && (
-            <ul className="team__list">
-              {teamArray.map((person) => (
+          {data && (
+            <div className="team__list">
+              {data.data.map((person) => (
                 <ul className="team__list-item" key={person.id}>
                   <li className={`team__list-name ${theme}`}>
                     {`${person.first_name} ${person.last_name}`}
@@ -50,7 +40,7 @@ function Team() {
                   </li>
                 </ul>
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </div>
