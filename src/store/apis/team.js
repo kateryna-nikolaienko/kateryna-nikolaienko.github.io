@@ -5,9 +5,12 @@ const teamApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://reqres.in/api' }),
   endpoints: (builder) => ({
     getTeam: builder.query({
-      query: () => ({
+      query: (page = 2) => ({
         url: '/users?page=2',
         method: 'GET',
+        params: {
+          page,
+        }
       }),
     }),
   }),
